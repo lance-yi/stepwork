@@ -37,7 +37,6 @@ var Api = {
       },
       callBack:function (res) {  
         if(res.state == 1){
-          console.log(res.data[0])
           Cookies.set("userInfo",res.data[0])
           _Base.isLogin();
         }else{
@@ -46,26 +45,45 @@ var Api = {
       }
     })
   },
-  // 获取公告
-  getIndexNotice: function () {
-    new ajaxRequest({
-      url: this.user,
-      param: {
-        action: 1
-      },
-      callBack:function (res) {  
-        if(res.state == 1){
-          console.log(res.data[0])
-          Cookies.set("userInfo",res.data[0])
-          _Base.isLogin();
-        }else{
-          CONFIG.showMsg(res.message);
+  // 获取公告函数
+  getIndexNotice: function (type) {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.notice,
+        param: {
+          action: 3,
+          type: type
+        },
+        callBack:function (res) {  
+          if(res.state == 1){
+            resolve(res.data);  
+          }else{
+            CONFIG.showMsg(res.message);
+          }
         }
-      }
+      })
+    })
+  },
+  // 获取首页函数
+  getIndexPlane: function () {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.gamerelation,
+        param: {
+          action: 2
+        },
+        callBack:function (res) {  
+          if(res.state == 1){
+            resolve(res.data);  
+          }else{
+            CONFIG.showMsg(res.message);
+          }
+        }
+      })
     })
   },
   init: function () {
-    this.getUserInfo();
+    // this.getUserInfo();
   }
 }
 
