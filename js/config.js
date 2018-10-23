@@ -8,12 +8,12 @@ var CONFIG = {
     <div class="mainNav">\
       <ul class="navLst">\
           <li><a href="index.html"><em>首页</em></a></li>\
-          <li><a href="expertplan.html"><em>专家计划</em></a></li>\
+          <li><a href="javascript:void(0)" onclick="Api.checkLogin(\'expertplan.html?key=1&gmKey=1\')"><em>专家计划</em></a></li>\
           <li><a href="award.html"><em>开奖号码</em></a></li>\
           <li><a href="trend.html"><em>走势图表</em></a></li>\
           <li><a href="news.html"><em>行业资讯</em></a></li>\
           <li><a href="skilliinfo.html"><em>玩法技巧</em></a></li>\
-          <li><a href="extend.html"><em>推广赚钱</em></a></li>\
+          <li><a href="javascript:void(0)" onclick="Api.checkLogin(\'extend.html\')"><em>推广赚钱</em></a></li>\
       </ul>\
     </div>\
     <div class="login" id="noLogin">\

@@ -24,34 +24,13 @@
 					<h2>玩家<em>技巧</em></h2>
 				</div>
 				<div class="partCon clearfix">
-					<ul>
-						<li><a href="./skilliinfoDetails.html">小炮英超德甲6中5+法甲9中8！小联赛命中5.50大冷</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">五星冷刀连中高赔稳胆回报率累计852% 秦昭近7中6</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">爆红!王云迪连擒两期足彩头奖+任九 老贼近10中9</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">稳！小炮昨英超首选命中7中6 意甲命中率80%</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">12中8都是浮云?! 小炮超8成胜率瞄准五大联赛</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">小炮英超德甲6中5+法甲9中8！小联赛命中5.50大冷</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">五星冷刀连中高赔稳胆回报率累计852% 秦昭近7中6</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">爆红!王云迪连擒两期足彩头奖+任九 老贼近10中9</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">稳！小炮昨英超首选命中7中6 意甲命中率80%</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">12中8都是浮云?! 小炮超8成胜率瞄准五大联赛</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">小炮英超德甲6中5+法甲9中8！小联赛命中5.50大冷</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">五星冷刀连中高赔稳胆回报率累计852% 秦昭近7中6</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">爆红!王云迪连擒两期足彩头奖+任九 老贼近10中9</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">稳！小炮昨英超首选命中7中6 意甲命中率80%</a><span>08-22 06:30</span></li>
-						<li><a href="./skilliinfoDetails.html">12中8都是浮云?! 小炮超8成胜率瞄准五大联赛</a><span>08-22 06:30</span></li>
+					<ul id="noticeList">
+						<!-- 内容 -->
 					</ul>
 				</div>
 			</div>
-			<div class="page">
-				<a href="javascript:void(0);">&lt;</a>
-				<a href="javascript:void(0);" class="cur">1</a>
-				<a href="javascript:void(0);">2</a>
-				<a href="javascript:void(0);">3</a>
-				<a href="javascript:void(0);">4</a>
-				<a href="javascript:void(0);">...</a>
-				<a href="javascript:void(0);">10</a>
-				<a href="javascript:void(0);">&gt;</a>
+			<div class="page" id="pageList">
+				<!-- 分页 -->
 			</div>
 
 		</div>
@@ -106,7 +85,21 @@
 	<div class="lay-footer"></div>
 
 </body>
+<script type="text/javascript" language="javascript" src="../layer_mobile/layer.js"></script>
 <script type="text/javascript" language="javascript" src="../js/cookie.js"></script>
 <script type="text/javascript" language="javascript" src="../js/config.js"></script>
 <script type="text/javascript" language="javascript" src="../js/base.js"></script>
+<script type="text/javascript" language="javascript" src="../js/request.js"></script>
+<script>
+	$(document).ready(function () {
+		Api.getNoticeList(1).then(function (res) {
+			var htmlStr = '';
+			res.data.forEach(function (item) {
+				htmlStr += "<li><a href=\"skilliinfoDetails.html?id"+ item.n_id +"\">"+ item.n_title +"</a><span>"+ item.n_addtime +"</span></li>";
+			});
+			$("#noticeList").html(htmlStr);
+			$("#pageList").html(res.pageUrl);
+		})
+	});
+</script>
 </html>

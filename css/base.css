@@ -231,7 +231,7 @@ background:#fff;font-family:Arial, Helvetica, sans-serif;}
 .page a.thrText{width:40px;}
 .page a:hover{border:1px solid #8e8e8e;color:#000;
 background:#f9f9f9;}
-.page a.cur,.page a.cur:hover{color:#fff; background: #1890FF;border:1px solid #1890FF; cursor:default;}
+.page a.current,.page a.current:hover{color:#fff; background: #1890FF;border:1px solid #1890FF; cursor:default;}
 .page a.morePage{font-weight:normal;border:0;padding:0;width:22px;background:none;}
 .page a.morePage:hover{background:none;border:0;padding:0;}
 

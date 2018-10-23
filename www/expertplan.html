@@ -19,8 +19,9 @@
 	<div class="leftNav">
 		<dl>
 			<dt><i class="iconfont icon-cqssc"></i>重庆时时彩</dt>
-			<dd class="cur"><a href="javascript:void(0);">定位胆</a></dd>
-			<dd><a href="javascript:void(0);">龙虎和</a></dd>
+			<dd class="cur" data-key="1" data-gmkey="1"><a href="expertplan.html?key=1&gmKey=1">定位胆个位杀</a></dd>
+			<dd data-key="1" data-gmkey="2"><a href="expertplan.html?key=1&gmKey=2">龙虎玩法</a></dd>
+			<dd data-key="1" data-gmkey="3"><a href="expertplan.html?key=1&gmKey=3">定位胆双胆杀</a></dd>
 		</dl>
 		<dl>
 			<dt><i class="iconfont icon-3d"><img src="../images/default/3d.jpg"/></i>福彩3D</dt>
@@ -42,8 +43,15 @@
 	</div>
     <div class="rightPlan">
     	<div class="nowprize clearfix">
-    		<div class="periods"><i class="iconfont icon-shijian"></i><span><em>20180921-</em>024期</span><a href="trend.html"><em class="tip">走势图</em></a></div>
-    		<div class="num"><em>1</em><em>4</em><em>7</em><em>8</em><em>12</em><em>6</em><em>6</em><em>5</em><em>8</em></div>
+    		<div class="periods">
+					<i class="iconfont icon-shijian"></i>
+					<span id="nowStage">
+						<!-- 当前期数 -->
+					</span>
+					<a href="trend.html"><em class="tip">走势图</em></a></div>
+    		<div class="num" id="nowOpenCode">
+					<!-- 开奖号码 -->
+				</div>
     	</div>
     	<div class="notic">
 			<i><img src="../images/default/laba.png"/></i>正在进行计划，快来试试吧！</div>
@@ -205,8 +213,60 @@
 </div>
 <!-- footer -->
 <div class="lay-footer"></div>
-	<script type="text/javascript" language="javascript" src="../js/cookie.js"></script>
-	<script type="text/javascript" language="javascript" src="../js/config.js"></script>
-	<script type="text/javascript" language="javascript" src="../js/base.js"></script>
+<script type="text/javascript" language="javascript" src="../layer_mobile/layer.js"></script>
+<script type="text/javascript" language="javascript" src="../js/cookie.js"></script>
+<script type="text/javascript" language="javascript" src="../js/config.js"></script>
+<script type="text/javascript" language="javascript" src="../js/base.js"></script>
+<script type="text/javascript" language="javascript" src="../js/request.js"></script>
+<script>
+	$(document).ready(function () {
+
+		// 判断当前彩种并添加对应的样式
+		var key = _Base.getQueryString("key");
+		var gmKey = _Base.getQueryString("gmKey");
+		$("[data-key]").removeClass("cur");
+		var gmkeyList = $("[data-gmkey]");
+		for (let i = 0; i < gmkeyList.length; i++) {
+			if($(gmkeyList[i]).data("gmkey") == gmKey) {
+				$(gmkeyList[i]).addClass("cur");
+			}
+		}
+
+		// 当前开奖号码
+		function _getNowOpenCode(key){
+			Api.getNowOpenCode(key).then(function (res) {
+				var list = res.oc_code.split(",");
+				var numStr = '';
+				list.forEach(function (item) {
+					numStr += "<em>"+ item +"</em>";
+				});
+				$("#nowOpenCode").html(numStr);
+				$("#nowStage").html("<em>"+res.oc_expect.toString().substr(0,8)+"-</em>"+ res.oc_expect.toString().substr(-3) +"期");
+			})
+		}
+		_getNowOpenCode(1);
+		var nowOpenCodeInt = window.setInterval(function () {
+			_getNowOpenCode(1)
+		}, 10000);
+
+		// 查询计划
+		function _getExpertPlanList(key,gmKey){
+			Api.getExpertPlanList(key,gmKey).then(function (res) {
+				console.log(res)
+				var list = res.oc_code.split(",");
+				var numStr = '';
+				list.forEach(function (item) {
+					numStr += "<em>"+ item +"</em>";
+				});
+				// $("#nowOpenCode").html(numStr);
+				// $("#nowStage").html("<em>"+res.oc_expect.toString().substr(0,8)+"-</em>"+ res.oc_expect.toString().substr(-3) +"期");
+			})
+		}
+		_getExpertPlanList(1,1);
+
+
+
+	});
+</script>
 </body>
 </html>

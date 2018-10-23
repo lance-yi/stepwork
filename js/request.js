@@ -28,6 +28,7 @@ var Api = {
       }
     })
   },
+  
   // 获取用户信息
   getUserInfo: function () {
     new ajaxRequest({
@@ -45,7 +46,8 @@ var Api = {
       }
     })
   },
-  // 获取公告函数
+  
+  // 获取咨询函数
   getIndexNotice: function (type) {
     return new Promise((resolve)=>{
       new ajaxRequest({
@@ -64,6 +66,7 @@ var Api = {
       })
     })
   },
+  
   // 获取首页函数
   getIndexPlane: function () {
     return new Promise((resolve)=>{
@@ -82,6 +85,118 @@ var Api = {
       })
     })
   },
+  
+  // 获取咨询详情函数
+  getNoticeDetail: function (id) {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.notice,
+        param: {
+          action: 4,
+          id: id
+        },
+        callBack:function (res) {  
+          if(res.state == 1){
+            resolve(res.data[0]);
+          }else{
+            CONFIG.showMsg(res.message);
+          }
+        }
+      })
+    })
+  },
+  
+  // 检查是否登录
+  checkLogin: function (html) {
+    if(Cookies.get("isLogin")){
+      window.location.href = html;
+    }else{
+      _Base.showMsg("请登录!");
+      setTimeout(function () {
+        CONFIG.showDialog("login");
+      }, 500);
+    }
+  },
+
+  // 获取当前彩种开奖
+  getNowOpenCode: function (key) {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.openCode,
+        param: {
+          action: 2,
+          key: key //彩种key
+        },
+        callBack:function (res) {  
+          if(res.state == 1){
+            resolve(res.data[0]);
+          }else{
+            CONFIG.showMsg(res.message);
+          }
+        }
+      })
+    })
+  },
+
+  // 查询计划
+  getExpertPlanList: function (key,gmKey) {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.gamerelation,
+        param: {
+          action: 1,
+          gt_key: key, //gt_key 彩种   gm_key 玩法   pwd_guid 用户登录返回GUID
+          gm_key: gmKey
+        },
+        callBack:function (res) {  
+          if(res.state == 1){
+            resolve(res.data);
+          }else{
+            CONFIG.showMsg(res.message);
+          }
+        }
+      })
+    })
+  },
+  // 获取咨询列表 - 带分页
+  getNoticeList: function (type) {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.notice,
+        param: {
+          action: 1,
+          type: type // type 类型  0行业资讯  1玩法技巧
+        },
+        callBack:function (res) {  
+          if(res.state == 0){
+            resolve(res);
+          }else{
+            CONFIG.showMsg(res.message);
+          }
+        }
+      })
+    })
+  },
+
+  // 推广赚钱
+  getBasicinfoExtend: function () {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.basicinfo,
+        param: {
+          action: 3
+        },
+        callBack:function (res) {  
+          if(res.state == 1){
+            resolve(res);
+          }else{
+            CONFIG.showMsg(res.message);
+          }
+        }
+      })
+    })
+  },
+
   init: function () {
     // this.getUserInfo();
   }
@@ -96,7 +211,7 @@ Api.init();
 // http://211.149.192.163//ajax/gamerelation.ashx?action=2';//首页计划显示     无参数
 // 专家计划
 // http://211.149.192.163//ajax/openCode.ashx?action=2';//当前开奖     key 彩种 
-// http://211.149.192.163//ajax/gamerelation.ashx?action=1';//查询计划  gt_key 彩种   gm_key 玩法   pwd_guid 用户登录返回GUID
+// http://211.149.192.163//ajax/gamerelation.ashx?action=1';//查询计划  gt_key 彩种   gm_key(123)  玩法   pwd_guid 用户登录返回GUID
 // 开奖号码
 // http://211.149.192.163//ajax/openCode.ashx?action=4';//当天开奖    key 彩种 
 // 行业资讯 玩法技巧

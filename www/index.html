@@ -98,25 +98,11 @@
 
 		<div class="forecast part">
 			<div class="partTit clearfix">
-				<h2>彩票<em>预测</em></h2><a href="javascript:void(0);">更多》</a>
+				<h2>彩票<em>预测</em></h2><a href="javascript:void(0);" onclick="Api.checkLogin('expertplan.html')">更多》</a>
 			</div>
 			<div class="partCon clearfix">
 				<ul id="planeList">
-					<li class="item">
-						<div class="th">061-063 五星 【43】 预测中</div>
-						<div class="td">060-062 五星 【21】 中</div>
-						<div class="th">060-062 五星 【21】 中</div>
-						<div class="td">060-062 五星 【21】 中</div>
-						<div class="th">060-062 五星 【21】 中</div>
-						<div class="td">060-062 五星 【21】 中</div>
-						<div class="th">060-062 五星 【21】 中</div>
-						<div class="td">060-062 五星 【21】 中</div>
-						<div class="th">060-062 五星 【21】 中</div>
-						<div class="td">060-062 五星 【21】 中</div>
-						<div class="th">060-062 五星 【21】 中</div>
-						<div class="td">060-062 五星 【21】 中</div>
-						<div class="last clearfix"><em>方案一</em><i>准确率 98%</i></div>
-					</li>
+					<!-- 内容 -->
 				</ul>
 			</div>
 		</div>
@@ -194,15 +180,21 @@
 		var planeList = [];
 		// 获取彩票预测
 		Api.getIndexPlane().then(function (res) {
-			console.log(res);
 			var evalArr = [],
 					htmlStr = "";
 			res.forEach(function(item,index){
 				evalArr = item.gr_money1.split("\n");
-				planeList[index].extends({list: evalArr},item);
+				planeList[index] = $.extend({list: evalArr},item);
 			});
 
-			console.log(res);
+			planeList.forEach(function (element,index) {
+				htmlStr += '<li class="item">';
+				element.list.forEach(function (item,_index) {
+					htmlStr += '<div class="'+ (_index%2 == 0 ? "th" : "td") + '">'+ item +'</div>';
+				});
+				htmlStr += '<div class="last clearfix"><em>方案'+ _Base.returnChinese(index+1) +'</em><i>准确率 '+ _Base.mathRound() +'</i></div></li>'
+			})
+			$("#planeList").html(htmlStr);
 		});
 		
 		// 加载首页行业资讯
@@ -221,14 +213,11 @@
 			var htmlStr = "";
 			res.forEach(function (item,index) {
 				if(index < 5){
-					htmlStr += '<li><a href="skilliinfoDetails.html.html?id='+ item.n_id +'">'+ item.n_title +'</a><span>'+ item.n_addtime +'</span></li>'
+					htmlStr += '<li><a href="skilliinfoDetails.html?id='+ item.n_id +'">'+ item.n_title +'</a><span>'+ item.n_addtime +'</span></li>'
 				}
 			});
 			$("#skillList").html(htmlStr);
 		});
-
-		
-
 
 
 
