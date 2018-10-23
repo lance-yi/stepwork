@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+/*内页头部*/
+.header{ background:#1c1c1c;}
+.header .mainNav{ top:30px;}
+
+/*内页底部*/
+body{background:#f4f5f9 url(../images/contact/bgContact.jpg) no-repeat center 100px;}
+
+
+
+/*联系页面*/
+.banenr{ max-width:1200px; height:360px; margin:0 auto; position:relative; }
+
+
+.partMain .text{ width:700px; font-size:16px;}
+.partMain .text p{ text-indent:35px; line-height:36px; margin-bottom:20px;}
+
+
+
+
+
+
+

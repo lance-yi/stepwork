@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+</head>
+<style>
+	.form dl dd {margin-left: 0px;}
+	.login-base h2{text-align:left;margin-top: -10px;}
+</style>
+
+<body>
+	<div class="popCueBox">
+		<div class="block-main login-base clearfix">
+			<h2><em></em>用户登录</h2>
+			<div class="form">
+				<dl class="clearfix">
+					<dd class="formRows clearfix">
+						<span class="formText">
+							<input type="text" autocomplete="false" size="25" value="" validata-options="validType:'Require|PhonesNums',msg:'请输手机号|用户名格式不正确'"
+							 placeholder="请输手机号" style="width:380px;" tabindex="1" class="text textGray" name="username" id="username">
+						</span>
+						<span class="tipPos"><span class="tipTxt tipErr" style="display: none;">错误提示语</span></span>
+					</dd>
+				</dl>
+				<dl class="clearfix">
+					<dd class="formRows formPassword clearfix">
+						<span class="formText">
+							<input type="password" class="text textGray" id="password" placeholder="请输登录密码" style="width:380px;" />
+						</span>
+						<span class="tipPos"><span class="tipTxt tipErr" style="display: none;">错误提示语</span></span>
+
+					</dd>
+				</dl>
+				<dl class="clearfix">
+					<dd class="formRows clearfix">
+
+						<div class="formBtn">
+							<a href="javascript:void(0);" id="loginBtn" class="btn1 btnsF18">登录</a>
+						</div>
+						<span class="formChb clearfix"><a href="javascript:void(0);" id="demoBtn0">忘记密码请联系客服？</a></span>
+					</dd>
+				</dl>
+				<dl class="clearfix">
+					<dd class="formRows clearfix">
+						<div class="formBtn">
+							<a href="javascript:void(0);" id="" class="btn2 btnsF18">还没有账号？免费注册</a>
+						</div>
+					</dd>
+				</dl>
+			</div>
+
+		</div>
+	</div>
+</body>
+<script>
+	$(function () {
+		$("#loginBtn").click(function () {
+			if ($("#username").val() == '') {
+				CONFIG.showMsg("请输入账号")
+				return
+			}
+			if($("#password").val() == ''){
+				CONFIG.showMsg("请输入密码")
+				return
+			}
+			Api.login($("#username").val(),$("#password").val());
+		})
+	})
+</script>
+
+</html>

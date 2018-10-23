@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+/*内页头部*/
+.header{ background:#1c1c1c;}
+.header .mainNav{ top:30px;}
+
+/*内页底部*/
+body{background:#f4f5f9 url(../images/service/bgService.jpg) no-repeat center 100px;}
+
+
+/*关于页面*/
+.banenr{ max-width:1200px; height:360px; margin:0 auto; position:relative; }
+.banenr .text01{ position:absolute; width:420px; text-align:center;  left:50%; top:80px; margin:0 0 0 -210px;  font-size:48px; color:#fff;
+animation:move01 3s alternate; -webkit-animation:move01 3s alternate; -moz-animation:move01 3s alternate;}
+@keyframes move01{from{left:450px;}to{ top:80px}} 
+@-webkit-keyframes move01{from{left:450px;}to{ top:80px}} 
+@-moz-keyframes move01{from{left:450px;}to{ top:80px}} 
+.banenr .text02{ position:absolute; width:420px; text-align:center; left:50%; top:150px;margin:0 0 0 -200px;  font-size:18px; color:#fff; text-transform:uppercase;
+animation:move02 5s alternate; -webkit-animation:move02 5s alternate; -moz-animation:move02 5s alternate;}
+@keyframes move02{from{left:700px;}to{ top:150px}} 
+@-webkit-keyframes move02{from{left:700px;}to{ top:150px}} 
+@-moz-keyframes move02{from{left:700px;}to{ top:150px}} 
+
+.partMain{ padding:0px;}
+.partMain .item01{ position:relative; height:380px; margin:30px 0; padding:50px;}
+.partMain .item01 .img{ position:absolute; left:150px; top:0px; width:335px; height:300px;
+animation:move03 3s alternate; -webkit-animation:move03 3s alternate; -moz-animation:move03 3s alternate;}
+@keyframes move03{from{top:70px;}to{top:0px;}} 
+@-webkit-keyframes move03{from{top:70px;}to{ top:0px;}} 
+@-moz-keyframes move03{from{top:70px;}to{top:0px;}} 
+.partMain .item01 .name{ position:absolute; left:550px; width:420px; height:300px;}
+ 
+
+.partMain .item01 .name .title{ font-size:40px; margin-bottom:40px;}
+.partMain .item01 .name p{ line-height:36px; margin-bottom:20px;}
+.partMain .item01 .name p b{ margin-right:20px;}
+.partMain .item01 .name .code span{ display:inline-block; margin-right:40px; text-align:center;}
+.partMain .item01 .name .code span img{ width:120px;}
+.partMain .item01 .name .code em{ display:block;}
+
+
+.partMain .item02{ background:#f9f0ef;}
+.partMain .item02 .title{ font-size:40px; text-align:center; margin:0 auto; padding-top:50px;}
+.partMain .item02 .details{ text-align:center; margin:20px auto ;padding-bottom:50px;}
+
+
+
+
+

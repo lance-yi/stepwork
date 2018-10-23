@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+</head>
+<script type="text/javascript" language="javascript" src="../js/ui_drop.js"></script>
+<!--选择框下拉效果-->
+<script type="text/javascript" language="javascript" src="../js/ui_inputFocus.js"></script>
+<!--输入框获取焦点-->
+<style>
+    .form{ height:300px; overflow-y:auto; width:420px;}
+.formRad{ display:inline-block; vertical-align:middle;}
+.drop{ width:310px;}
+.formChb{ width:375px; display:inline-block;}
+.formChb span{ margin-right:10px; display:inline-block; line-height:26px; height:26px;}
+.tipTxt{ margin:5px 0 0 0;vertical-align: middle; display:inline-block;}
+dl.name{ margin-bottom:15px;}
+.name .formText{ font-size:16px;}
+.formText{ height:auto; float:none;}
+.form dl dt{ width:100px;}
+.form dl dd{margin-left: 120px;}
+.addBtn{ border-top:1px solid #e5e5e5;padding:20px 0 0 0;}
+.dialog{text-align: left:}
+.tip{ color:#999; width: 300px; padding-left: 120px; text-align: left; float: left;}
+.icon-zhifubao{ font-size:22px; margin:0 5px -5px 0; float: left; color:#1296db;}	
+.icon-weixin{ font-size:22px; margin:0 5px -5px 0; float: left; color:#0FD11B;}	
+.btnsF20{ font-family:arial;}
+.popPart h2{ margin-bottom:10px;}
+</style>
+
+<body>
+    <div class="popPart">
+        <h2><em></em>提现</h2>
+        <div class="form clearfix">
+            <dl class="clearfix">
+                <dt>当前余额</dt>
+                <dd class="formRows clearfix">
+                    <span class="formText btnsF20">¥ 8987.00</span>
+                    <span class="tipPos"><span class="tipTxt"></span></span>
+                </dd>
+            </dl>
+            <dl class="clearfix">
+                <dt>提现至</dt>
+                <dd class="formRows clearfix">
+                    <span class="formText btnsF20"><i class="iconfont icon-zhifubao"></i>支付宝号 15388886666</span>
+                    <!--<span class="formText btnsF20"><i class="iconfont icon-weixin"></i>支付宝号 15388886666</span>-->
+                    <span class="tipPos"><span class="tipTxt"></span></span>
+                </dd>
+            </dl>
+            <dl class="clearfix">
+                <dt>提现金额</dt>
+                <dd class="formRows clearfix">
+                    <span class="formText"><input type="text" class="text textGray" id="yx" value="" style="width:280px;" /></span>
+                    <span class="tipPos"><span class="tipTxt">重新输入提现金额</span></span>
+                </dd>
+            </dl>
+            <dl class="clearfix">
+                <dt>支付密码</dt>
+                <dd class="formRows clearfix">
+                    <span class="formText"><input type="password" class="text textGray" id="yx" value="" style="width:280px;" /></span>
+                    <span class="tipPos"><span class="tipTxt"></span></span>
+                </dd>
+            </dl>
+            <div class="tip">到账时间：申请提款后1个小时内到账，若提款1小时后未到账请联系客服处理</div>
+        </div>
+        <div class="addBtn"><a class="btn2 btnsF16" href="javascript:void(0);">取消</a><a class="btn1 btnsF16" href="javascript:void(0);">确认</a></div>
+    </div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.focusColor('input.text');
+        $.focusDate('.dateText');
+    });
+</script>

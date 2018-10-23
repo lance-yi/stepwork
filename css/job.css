@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+/*内页头部*/
+.header{ background:#1c1c1c;}
+.header .mainNav{ top:30px;}
+
+/*内页底部*/
+body{background:#f4f5f9 url(../images/team/bgTeam.jpg) no-repeat center 100px;}
+
+
+/*关于页面*/
+.banenr{ max-width:1200px; height:360px; margin:0 auto; position:relative; }
+.banenr .text01{ position:absolute; width:680px; left:0px; top:80px;  font-size:48px; color:#fff;
+animation:move01 3s alternate; -webkit-animation:move01 3s alternate; -moz-animation:move01 3s alternate;}
+@keyframes move01{from{left:-50px;}to{ top:80px}} 
+@-webkit-keyframes move01{from{left:-50px;}to{ top:80px}} 
+@-moz-keyframes move01{from{left:-50px;}to{ top:80px}} 
+
+.banenr .text02{ position:absolute; width:680px; left:0px; top:150px;  font-size:18px; color:#fff; text-transform:uppercase;
+animation:move02 5s alternate; -webkit-animation:move02 5s alternate; -moz-animation:move02 5s alternate;}
+@keyframes move02{from{left:200px;}to{ left:30px}} 
+@-webkit-keyframes move02{from{left:200px;}to{ left:30px}} 
+@-moz-keyframes move02{from{left:200px;}to{ left:30px}} 
+
+.partMain dl { margin-bottom:20px; border-bottom:1px dashed #ccc; padding-bottom:20px;}
+.partMain dl dt{ font-size:18px; margin-bottom:15px;}
+.partMain dl dd{ line-height:30px; color:#666}
+.partMain dl dd span{ display:block;}
+
+
+
+

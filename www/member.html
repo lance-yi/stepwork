@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../css/page.css" />
+	<script type="text/javascript" language="javascript" src="../js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" language="javascript" src="../js/layerModel.js"></script>
+	<!--弹出层-->
+	<script type="text/javascript" language="javascript" src="../js/ui_inputFocus.js"></script>
+	<!--输入框获取焦点-->
+	<script type="text/javascript" language="javascript" src="../js/ui_drop.js"></script>
+	<!--选择框下拉效果-->
+	<script>
+		$(function () {
+			function tabs(tabTit, on, tabCon) {
+				$(tabTit).children().hover(function () {
+					$(this).addClass(on).siblings().removeClass(on);
+					var index = $(tabTit).children().index(this);
+					$(tabCon).children().eq(index).show().siblings().hide();
+				});
+			};
+			tabs(".tab-hd", "cur", ".tab-bd");
+		});
+	</script>
+	<style>
+		body {
+			background: #F9F9F9;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- header -->
+	<div class="header"></div>
+	
+	<!-- body -->
+	<div class="content memberPage clearfix">
+		<div class="memberinfo clearfix">
+			<div class="info">
+				<div class="img"><img src="../images/default/head.png" /></div>
+				<div class="name"><em>janena2008</em><span><i class="iconfont icon-vipffb400"></i>优惠vip</span></div>
+				<div class="jibie">级别：总代理</div>
+				<div class="bdxx"><a href="javascript:void(0);" id="bangding">绑定信息</a></div>
+			</div>
+			<div class="money">
+				<div class="clearfix">
+					<div class="mon"><em>账户金额(元)</em><span>5,000.00</span></div>
+					<div class="freeze"><em>冻结金额(元)</em><span>100.00</span></div>
+				</div>
+				<div class="oper">
+					<a href="javascript:void(0);" id="recharge" class="btn1 btnsF14">充值</a>
+					<a href="javascript:void(0);" id="Withdrawcash" class="btn2 btnsF14">提现</a>
+				</div>
+			</div>
+			<div class="set">
+				<a href="javascript:void(0);" id="code"><i class="iconfont icon-hp-key"></i>修改登录密码</a>
+				<a href="javascript:void(0);" id="Tradercode"><i class="iconfont icon-jiaoyi"></i>修改交易密码</a>
+			</div>
+
+		</div>
+
+		<div class="memList clearfix">
+			<div class="main">
+				<ul class="main-nav  tab-hd clearfix">
+					<li class="cur">团队管理</li>
+					<li>团队佣金</li>
+					<li>资金明细</li>
+				</ul>
+				<div class="tab-bd clearfix">
+					<div class="main-con">
+						<table width="100%">
+							<tr>
+								<th width="25%">账号</th>
+								<th width="25%">加入日期</th>
+								<th width="25%">级别</th>
+								<th width="25%">状态</th>
+							</tr>
+							<tr>
+								<td>Jdmin</td>
+								<td>2018-04-01</td>
+								<td>代理商</td>
+								<td><span>正常</span></td>
+							</tr>
+							<tr>
+								<td>Jdmin</td>
+								<td>2018-04-01</td>
+								<td>代理商</td>
+								<td class="red">异常</td>
+							</tr>
+							<tr>
+								<td>Jdmin</td>
+								<td>2018-04-01</td>
+								<td>代理商</td>
+								<td><span>正常</span></td>
+							</tr>
+							<tr>
+								<td>Jdmin</td>
+								<td>2018-04-01</td>
+								<td>代理商</td>
+								<td><span>正常</span></td>
+							</tr>
+						</table>
+						<div class="page">
+							<a href="javascript:void(0);">&lt;</a>
+							<a href="javascript:void(0);" class="cur">1</a>
+							<a href="javascript:void(0);">2</a>
+							<a href="javascript:void(0);">3</a>
+							<a href="javascript:void(0);">4</a>
+							<a href="javascript:void(0);">...</a>
+							<a href="javascript:void(0);">10</a>
+							<a href="javascript:void(0);">&gt;</a>
+						</div>
+					</div>
+					<div class="main-con" style="display:none;">
+						<table width="100%">
+							<tr>
+								<th width="25%">账号</th>
+								<th width="25%">加入日期</th>
+								<th width="25%">级别</th>
+								<th width="25%" class="price">金额(元)</th>
+							</tr>
+							<tr>
+								<td>Jdmin</td>
+								<td>2018-04-01</td>
+								<td>代理商</td>
+								<td class="price">655.00</td>
+							</tr>
+							<tr>
+								<td>Jdmin</td>
+								<td>2018-04-01</td>
+								<td>代理商</td>
+								<td class="price">6522.00</td>
+							</tr>
+							<tr>
+								<td>Jdmin</td>
+								<td>2018-04-01</td>
+								<td>代理商</td>
+								<td class="price">988.00</td>
+							</tr>
+							<tr>
+								<td>Jdmin</td>
+								<td>2018-04-01</td>
+								<td>代理商</td>
+								<td class="price">1.254.00</td>
+							</tr>
+						</table>
+						<div class="page">
+							<a href="javascript:void(0);">&lt;</a>
+							<a href="javascript:void(0);" class="cur">1</a>
+							<a href="javascript:void(0);">2</a>
+							<a href="javascript:void(0);">3</a>
+							<a href="javascript:void(0);">4</a>
+							<a href="javascript:void(0);">...</a>
+							<a href="javascript:void(0);">10</a>
+							<a href="javascript:void(0);">&gt;</a>
+						</div>
+					</div>
+					<div class="main-con" style="display:none;">
+						<table width="100%">
+							<tr>
+								<th width="25%">交易时间</th>
+								<th width="25%">金额(元)</th>
+								<th width="25%">明细</th>
+							</tr>
+							<tr>
+								<td>2018-04-01 09:23</td>
+								<td class="price">1.254.00</td>
+								<td>提现</td>
+							</tr>
+							<tr>
+								<td>2018-04-01 09:23</td>
+								<td class="price">1.254.00</td>
+								<td>提现</td>
+							</tr>
+							<tr>
+								<td>2018-04-01 09:23</td>
+								<td class="price green">1.254.00</td>
+								<td>充值</td>
+							</tr>
+							<tr>
+								<td>2018-04-01 09:23</td>
+								<td class="price green">1.254.00</td>
+								<td>充值</td>
+							</tr>
+						</table>
+						<div class="page">
+							<a href="javascript:void(0);">&lt;</a>
+							<a href="javascript:void(0);" class="cur">1</a>
+							<a href="javascript:void(0);">2</a>
+							<a href="javascript:void(0);">3</a>
+							<a href="javascript:void(0);">4</a>
+							<a href="javascript:void(0);">...</a>
+							<a href="javascript:void(0);">10</a>
+							<a href="javascript:void(0);">&gt;</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--mian end-->
+		</div>
+
+	</div>
+
+	<!-- footer -->
+	<div class="lay-footer"></div>
+
+	<!--弹窗 start	-->
+	<div class="dialog"></div>
+	<!--弹窗 end	-->
+
+</body>
+<script type="text/javascript" language="javascript" src="../js/cookie.js"></script>
+<script type="text/javascript" language="javascript" src="../js/config.js"></script>
+<script type="text/javascript" language="javascript" src="../js/base.js"></script>
+</html>

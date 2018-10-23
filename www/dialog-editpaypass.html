@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<script type="text/javascript" language="javascript" src="../js/ui_drop.js"></script><!--选择框下拉效果-->
+<script type="text/javascript" language="javascript" src="../js/ui_inputFocus.js"></script><!--输入框获取焦点-->
+<style>
+.form{ height:210px; overflow-y:auto; width:420px;}
+.formRad{ display:inline-block; vertical-align:middle;}
+.drop{ width:310px;}
+.formChb{ width:375px; display:inline-block;}
+.formChb span{ margin-right:10px; display:inline-block; line-height:26px; height:26px;}
+.tipTxt{ margin:5px 0 0 0;vertical-align: middle; display:inline-block;}
+dl.name{ margin-bottom:15px;}
+.name .formText{ font-size:16px;}
+.formText{ height:auto; float:none;}
+.form dl dt{ width:100px;}
+.form dl dd{margin-left: 120px;}
+.addBtn{ border-top:1px solid #e5e5e5;padding:20px 0 0 0;}
+
+</style>
+<body>
+<div class="popPart">
+<h2><em></em>修改交易密码</h2>
+	<div class="form clearfix">
+    <dl class="clearfix">
+        <dt>原交易密码</dt>
+        <dd class="formRows clearfix">
+            <span class="formText"><input type="text" class="text textGray" id="yx" value="" style="width:280px;" /></span>
+            <span class="tipPos"><span class="tipTxt">请输入原密码</span></span>
+        </dd>
+    </dl>
+    <dl class="clearfix">
+        <dt>新交易密码</dt>
+        <dd class="formRows clearfix">
+            <span class="formText"><input type="password" class="text textGray" id="yx" value="" style="width:280px;" /></span>
+            <span class="tipPos"><span class="tipTxt">6-16位英文，数字，下划线</span></span>
+        </dd>
+    </dl>
+    <dl class="clearfix">
+        <dt>确认新交易密码</dt>
+        <dd class="formRows clearfix">
+            <span class="formText"><input type="password" class="text textGray" id="yx" value="" style="width:280px;" /></span>
+            <span class="tipPos"><span class="tipTxt">重新输入一次密码</span></span>
+        </dd>
+    </dl>
+    </div>
+    <div class="addBtn"><a class="btn2 btnsF16" href="javascript:void(0);">取消</a><a class="btn1 btnsF16" href="javascript:void(0);">确认</a></div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$.focusColor('input.text');	
+$.focusDate('.dateText');
+});
+</script>

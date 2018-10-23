@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+/*内页头部*/
+.header{ background:#1c1c1c;}
+.header .logo{ top:10px;}
+.header .mainNav{ top:30px;}
+
+/*内页底部*/
+body{background:#f4f5f9 url(../images/team/bgTeam.jpg) no-repeat center 100px;}
+.footer{ position:inherit; color:#999; margin:20px auto 40px; padding-bottom:40px;}
+.footer .footlink a{ color:#999;}
+.footer .footlink a:hover{ color:#666;}
+
+
+/*关于页面*/
+.banenr{ max-width:1200px; height:360px; margin:0 auto; position:relative; }
+.banenr .text01{ position:absolute; width:620px; left:0px; top:80px;  font-size:48px; color:#fff;
+animation:move01 3s alternate; -webkit-animation:move01 3s alternate; -moz-animation:move01 3s alternate;}
+@keyframes move01{from{left:-50px;}to{ top:80px}} 
+@-webkit-keyframes move01{from{left:-50px;}to{ top:80px}} 
+@-moz-keyframes move01{from{left:-50px;}to{ top:80px}} 
+
+.banenr .text02{ position:absolute; width:620px; left:0px; top:150px;  font-size:18px; color:#fff; text-transform:uppercase;
+animation:move02 5s alternate; -webkit-animation:move02 5s alternate; -moz-animation:move02 5s alternate;}
+@keyframes move02{from{left:200px;}to{ left:30px}} 
+@-webkit-keyframes move02{from{left:200px;}to{ left:30px}} 
+@-moz-keyframes move02{from{left:200px;}to{ left:30px}} 
+
+.partMain .team01{ border-bottom:1px solid #ccc; margin-bottom:30px; padding-bottom:30px;}
+.partMain .team01 dl{ width:410px; float:left; margin:0 0 0 90px;}
+.partMain .team01 dt{ width: 225px; margin:0 auto; text-align:center;}
+.partMain .team01 dt .name{ font-size:24px; margin:20px 0;}
+.partMain .team01 dd{ text-align:center; line-height:36px; color:#666;}
+
+.partMain .team02{ border-bottom:1px solid #ccc; margin-bottom:30px; padding-bottom:30px;}
+.partMain .team02 dl{ width:520px; float:left; margin:0 0 0 30px;}
+.partMain .team02 dt{ float:left; width: 215px; margin:0 auto; text-align:center;}
+.partMain .team02 dd .name{ font-size:18px;}
+.partMain .team02 dd{ float:left; width:280px; text-align:left; margin-left:20px; line-height:36px; color:#666;}
+
+.partMain .team03 dl{ width:215px; float:left; margin:0 0 0 50px;}
+.partMain .team03 dt{ width: 215px; margin:0 auto 15px; text-align:center;}
+.partMain .team03 dd{ text-align:center; line-height:26px; color:#666; font-size:16px;}
+.partMain .team03 dd em{ display:block;}
+

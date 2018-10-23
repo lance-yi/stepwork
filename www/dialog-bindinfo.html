@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<script type="text/javascript" language="javascript" src="js/ui_drop.js"></script><!--选择框下拉效果-->
+<style>
+.form{ height:200px; overflow-y:auto; width:440px;}
+.formRad{ display:inline-block; vertical-align:middle;}
+.drop{ width:310px;}
+.formChb{ width:375px; display:inline-block;}
+.formChb span{ margin-right:10px; display:inline-block; line-height:26px; height:26px;}
+.tipTxt{ margin:5px 0 0 0;vertical-align: middle; color:#333; display:inline-block;}
+dl.name{ margin-bottom:15px;}
+.name .formText{ font-size:16px;}
+.formText{ height:auto; float:none;}
+.form dl dt{ width:100px;}
+.form dl dd{margin-left: 120px;}
+.addBtn{ border-top:1px solid #e5e5e5;padding:20px 0 0 0;}
+	.drop{width:290px;}
+	.drop i.iconfont{position: absolute;right: 10px;top:0px;font-size: 14px;color: #ccc;cursor: pointer;}
+</style>
+<body>
+<div class="popPart">
+<h2><em></em>绑定信息</h2>
+	<div class="form">
+    <dl class="clearfix">
+        <dt>支付类型</dt>
+        <dd class="formRows clearfix">
+            <span class="drop">
+                <i class="iconfont icon-jiantou-xia"></i>
+                <span class="dropSeld gray" style="width:280px;">请选择</span>
+                <div class="dropLst">
+                    <div class="dropLstCon" style="width:288px;">
+                        <ul>
+                            <li class="uiSelect">微信</li> 
+                            <li class="uiSelect">支付宝</li>
+                        </ul>
+                    </div>
+                </div>
+            </span>
+            <span class="tipPos"><span class="tipTxt" style="display:none;">提示语</span></span>
+        </dd>
+	</dl>
+    <dl class="clearfix">
+        <dt>支付宝/微信号</dt>
+        <dd class="formRows clearfix">
+            <span class="formText"><input type="text" class="text textGray" id="yx" value="" style="width:280px;" /></span>
+            <span class="tipPos"><span class="tipTxt" style="display:none;">提示语</span></span>
+        </dd>
+    </dl>
+    <dl class="clearfix">
+        <dt>姓名</dt>
+        <dd class="formRows clearfix">
+            <span class="formText"><input type="text" class="text textGray" id="yx" value="" style="width:280px;" /></span>
+            <span class="tipPos"><span class="tipTxt" style="display:none;">提示语</span></span>
+        </dd>
+    </dl>
+    </div>
+    <div class="addBtn"><a class="btn2 btnsF16" href="javascript:void(0);">确定</a><a class="btn1 btnsF16" href="javascript:void(0);">取消</a></div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $.focusColor('input.text');	
+    $.focusDate('.dateText');
+});
+</script>

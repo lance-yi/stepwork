@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+</head>
+<script type="text/javascript" language="javascript" src="../js/ui_drop.js"></script>
+<!--选择框下拉效果-->
+<script type="text/javascript" language="javascript" src="../js/ui_inputFocus.js"></script>
+<!--输入框获取焦点-->
+<style>
+.form{ height:400px; overflow-y:auto; width:990px;}
+h4{ display:none;}
+.addBtn{ border-top:1px solid #e5e5e5;padding:20px 20px 0 0;text-align:right;}
+.layerModel_wrapper{ padding:0;}
+h3{ text-align:left; font-size:14px;margin:5px 0 10px 0;}
+h3 em{font-size:16px; color: #FF0000; font-family: arial;}
+.form{ padding:20px;}
+.list li{ border:1px solid #ccc;  width: 180px; height: 90px; text-align: center; float: left; margin:0 15px 15px 0;}
+.list li:nth-child(5n+5){ margin-right:0;}	
+.list li.cur{ border:1px solid #FF0000;}
+.list .price{ display:block;}
+.list .price b{ font-size:36px; color: #FF0000; font-family: arial; margin-right: 5px;}
+.list .price em{  color: #FF0000;}
+.list .txt{ font-size:12px;}
+.code ul{padding:0 0 0 300px;}
+.code li{ float: left; margin:0 40px 10px 0;}
+.code li{ border:1px solid #e5e5e5; padding: 10px;}
+.code li .img {display:block;}
+.code li .img img{ width: 145px; height: 145px;}
+.code li .txt{text-align:center;}
+.icon-zhifubao{ font-size:22px; margin:0 5px -5px 0;  color:#1296db;}	
+.icon-weixin{ font-size:22px; margin:0 5px -5px 0; color:#0FD11B;}	
+.dialog{text-align:center;}
+a.btn1:link{width: 80px;}
+</style>
+
+<body>
+	<div class="popPart">
+		<div class="tit"><img src="../images/default/czbanner.jpg" /></div>
+		<div class="form clearfix">
+			<div class="list">
+				<h3>选择充值服务</h3>
+				<ul class="clearfix">
+					<li class="cur"><span class="price"><b>5</b>元/<em>1天</em></span><span class="txt">这里是优惠细则</span></li>
+					<li><span class="price"><b>20</b>元/<em>1天</em></span><span class="txt">这里是优惠细则</span></li>
+					<li><span class="price"><b>50</b>元/<em>1天</em></span><span class="txt">这里是优惠细则</span></li>
+					<li><span class="price"><b>120</b>元/<em>1天</em></span><span class="txt">这里是优惠细则</span></li>
+					<li><span class="price"><b>599</b>元/<em>1天</em></span><span class="txt">这里是优惠细则</span></li>
+				</ul>
+				<h3>应付金额 ：<em>¥ 5</em></h3>
+			</div>
+			<div class="code">
+				<ul class="clearfix">
+					<li>
+						<span class="img"><img src="../images/default/code.jpg" /></span>
+						<span class="txt"><i class="iconfont icon-weixin"></i>微信支付</span>
+					</li>
+					<li>
+						<span class="img"><img src="../images/default/code.jpg" /></span>
+						<span class="txt"><i class="iconfont icon-zhifubao"></i>支付宝支付</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="addBtn"><a class="btn2 btnsF16" href="javascript:void(0);" onclick="layerModelHide()">取消</a><a class="btn1 btnsF16"
+			 href="javascript:void(0);" onclick="rechargeSuccess()">充值完成</a></div>
+	</div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+	function rechargeSuccess() {
+		
+	};
+	$(document).ready(function () {
+		$.focusColor('input.text');
+		$.focusDate('.dateText');
+	});
+</script>

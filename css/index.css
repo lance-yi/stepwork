@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+
+
+body{background:url(../images/default/banner.jpg) no-repeat center 0;}
+
+
+.section{width:100%; margin:0 auto;}
+.section .banner{ height:500px; position:relative; padding-top: 80px;}
+.section .banner .text{ position:absolute; width:1075px; height:144px; left:50%; top:38%; margin:-70px 0 0 -530px; font-size: 40px; color: #fff; text-align: center;
+animation:move01 2s alternate; -webkit-animation:move01 2s alternate; -moz-animation:move01 2s alternate;}
+@keyframes move01{from{top:60%;}to{ top:38%}} 
+@-webkit-keyframes move01{from{top:60%;}to{ top:38%}} 
+@-moz-keyframes move01{from{top:60%;}to{ top:38%}} 
+@-o-keyframes move01{from{top:60%;}to{ top:38%}} 
+
+
+
+/*---------------专家推荐--------------*/
+.expertRecom{ margin-bottom:40px; margin-top:-160px; text-align: center;padding:10px 0 20px 20px; box-shadow:  0px 0px 10px  rgba(0, 0, 0, 0.2);}
+.expertRecom .partTit{ padding-right:20px;}
+.expertRecom .item{ float:left; width: 225px; margin-right: 40px; border-right:1px solid #e6e6e6; padding-right: 40px;}
+.expertRecom li.item  div{ margin-bottom:5px;}
+.expertRecom li .img img{ width: 60px; height: 60px; border-radius: 45px;}
+.expertRecom .name{font-size:18px;}
+.expertRecom .item .tip{ font-size: 12px; color: #999;}
+.expertRecom .item .detail{margin:10px 0 15px;}
+.expertRecom .last{border-right:0;margin-right:0px; padding-right:0;} 
+
+/*---------------彩票预测--------------*/
+.forecast{ margin-bottom: 40px;}
+.forecast li.item{ float:left; width: 220px; border: 1px solid #e5e5e5; font-size: 12px; margin-right:20px;}
+.forecast li:nth-child(5n+5){ margin-right:0;}
+.forecast li.item div{ line-height: 40px; height: 40px; padding-left: 20px;}
+.forecast li.item .th{ background: #F3F8FF;}
+.forecast .last{ font-size:14px; border-top: 1px solid #e5e5e5;}
+.forecast .last em{color:#999; float:left;}
+.forecast .last i{ color:#ED686C; float:right;padding-right: 20px;}
+
+/*---------------行业资讯--------------*/
+.tradeInfo{ float: left; width: 585px;}
+.tradeInfo .partCon{ background:#F7F7F7; line-height: 42px; padding: 20px;}
+.tradeInfo span{float: right;}
+
+
+/*---------------玩法技巧--------------*/
+.wayMethod{ float: right; width: 585px;}
+.wayMethod .partCon{ background:#F7F7F7; line-height: 42px; padding: 20px;}
+.wayMethod span{float: right;}
+
+
+
+
+
+
