@@ -172,7 +172,7 @@ var _Base = {
 
     // 注册
     $(document).on("click", "#register", function () {
-      CONFIG._showDialog("register")
+      CONFIG._showDialog("register",400,400)
     })
 
     // 绑定信息

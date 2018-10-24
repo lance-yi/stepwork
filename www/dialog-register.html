@@ -11,45 +11,50 @@
 	.form dl dd {margin-left: 0px;}
 	.login-base h2{text-align:left;margin-top: -10px;}
 	.verifycodeImg {float: right;}
+	.register .formText{
+		display: block;
+		line-height: 35px;
+		height: auto;
+	}
 </style>
 
 <body>
 	<div class="popCueBox">
 		<div class="block-main login-base clearfix">
 			<h2><em></em>注册</h2>
-			<form class="form">
+			<form class="form register">
 				<dl class="clearfix">
 					<dd class="formRows clearfix">
 						<span class="formText">
 							<input type="text" placeholder="用户名" style="width:380px;" class="text textGray" name="username" id="username">
 						</span>
-						<span class="tipPos"><span class="tipTxt tipErr">错误提示语</span></span>
+						<span class="tipPos"><span class="tipTxt tipErr"></span></span>
 					</dd>
 				</dl>
 				<dl class="clearfix">
 					<dd class="formRows formPassword clearfix">
 						<span class="formText">
-							<input type="password" class="text textGray" id="yx" placeholder="密码" style="width:380px;" />
+							<input type="password" class="text textGray" id="password" placeholder="密码" style="width:380px;" />
 						</span>
-						<span class="tipPos"><span class="tipTxt tipErr" style="display: none;">错误提示语</span></span>
+						<span class="tipPos"><span class="tipTxt tipErr"></span></span>
 
 					</dd>
 				</dl>
 				<dl class="clearfix">
 					<dd class="formRows formPassword clearfix">
 						<span class="formText">
-							<input type="password" class="text textGray" id="yx" placeholder="确认密码" style="width:380px;" />
+							<input type="password" class="text textGray" id="password2" placeholder="确认密码" style="width:380px;" />
 						</span>
-						<span class="tipPos"><span class="tipTxt tipErr" style="display: none;">错误提示语</span></span>
+						<span class="tipPos"><span class="tipTxt tipErr"></span></span>
 
 					</dd>
 				</dl>
 				<dl class="clearfix">
 					<dd class="formRows formPassword clearfix">
 						<span class="formText">
-							<input type="text" class="text textGray" id="yx" placeholder="请输入推荐码（选填）" style="width:380px;" />
+							<input type="text" class="text textGray" id="code" placeholder="请输入推荐码（选填）" style="width:380px;" />
 						</span>
-						<span class="tipPos"><span class="tipTxt tipErr" style="display:block;"><i class="iconfont">&#xe61f;</i>错误提示语</span></span>
+						<span class="tipPos"><span class="tipTxt tipErr"></span></span>
 
 					</dd>
 				</dl>
@@ -57,7 +62,7 @@
 					<dd class="formRows clearfix">
 
 						<div class="formBtn">
-							<a href="javascript:void(0);" id="" class="btn1 btnsF18">注册</a>
+							<a href="javascript:void(0);" id="submitRegisterFrom" class="btn1 btnsF18">注册</a>
 						</div>
 					</dd>
 				</dl>
@@ -68,8 +73,35 @@
 </body>
 <script src="../js/request.js"></script>
 <script>
-	$(function () {
+	$(document).ready(function () {
+		var username = $("#username"); 
+		var password = $("#password"); 
+		var password2 = $("#password2");
+		var code = $("#code");
 
-	})
+		username.blur(function () {
+			CONFIG._checkUserName(username);
+		})
+
+		password.blur(function () {
+			CONFIG._checkRegisterWord(password);
+		})
+
+		password2.blur(function () {
+			if(password.val() != password2.val()){
+				$(this).parent().next().children(".tipTxt").text("两次密码输入不一致");
+				$(this).val("");
+				return;
+			}
+			$(this).parent().next().children(".tipTxt").text("");
+		})
+
+		$("#submitRegisterFrom").on("click", function () {
+			if(CONFIG._checkUserName && CONFIG._checkUserName && password.val() == password2.val()){
+				Api.register(username.val(),password.val(),code.val());
+			}
+		});
+
+	});
 </script>
 </html>

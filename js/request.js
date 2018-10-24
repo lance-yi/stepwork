@@ -18,10 +18,32 @@ var Api = {
         pwd: $.md5(pwd).toUpperCase()
       },
       callBack:function (res) {  
-        if(res.state == 10000){
+        if(res.state >= 10000){
           Cookies.set("guid",res.pageUrl,{expires: 7, path: '/'});
           Cookies.set("isLogin",true,{expires: 7,path: '/'});
           Api.getUserInfo();
+          layerModelHide();
+          CONFIG._showMsg(res.message);
+        }else{
+          CONFIG._showMsg(res.message);
+        }
+      }
+    })
+  },
+
+  // 注册
+  register: function (name, pwd, pid) {
+    new ajaxRequest({
+      url: this.user,
+      param: {
+        action: 30,
+        name: name,
+        pwd: $.md5(pwd).toUpperCase(),
+        pid: pid ? pid : 10000
+      },
+      callBack:function (res) { 
+        console.log(res); 
+        if(res.state == 1){
           layerModelHide();
           CONFIG._showMsg(res.message);
         }else{
@@ -43,6 +65,7 @@ var Api = {
           Cookies.set("userInfo",res.data[0])
           _Base.isLogin();
         }else{
+          CONFIG._logout();
           CONFIG._showMsg(res.message);
         }
       }

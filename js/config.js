@@ -173,6 +173,53 @@ var CONFIG = {
     return true;
   },
 
+  // 检查用户名
+  _checkUserName: function (dom) {
+    if(dom.val() == ''){
+      dom.parent().next().children(".tipTxt").text("请输入用户名");
+      return false;
+    }
+    if(!/^[a-zA-Z0-9_-]{4,16}$/.test(dom.val())){
+      dom.parent().next().children(".tipTxt").text("用户名长度为4到16位（字母，数字，下划线，减号）");
+      return false;
+    }
+    if(!/[a-zA-Z]+/.test(dom.val())){
+      dom.parent().next().children(".tipTxt").text("必须包含字母");
+      return false;
+    }
+    if(!/[0-9]+/.test(dom.val())){
+      dom.parent().next().children(".tipTxt").text("必须包含数字");
+      return false;
+    }
+    dom.parent().next().children(".tipTxt").text("");
+    return true;
+  },
+  // 检查注册密码
+  _checkRegisterWord: function (dom) {
+    if(dom.val() == ''){
+      dom.parent().next().children(".tipTxt").text("请输入密码");
+      return false;
+    }
+    if(!/[a-zA-Z]+/.test(dom.val())){
+      dom.parent().next().children(".tipTxt").text("必须包含字母");
+      return false;
+    }
+    if(!/[0-9]+/.test(dom.val())){
+      dom.parent().next().children(".tipTxt").text("必须包含数字");
+      return false;
+    }
+    if(!/[!@#$%^&*()_?<>{}]{1}/.test(dom.val())){
+      dom.parent().next().children(".tipTxt").text("必须包含特殊字符!@#$%^&*()_?<>{}");
+      return false;
+    }
+    if(!/([a-zA-Z0-9!@#$%^&*()_?<>{}]){6,18}/.test(dom.val())){
+      dom.parent().next().children(".tipTxt").text("密码长度为6-18位");
+      return false;
+    }
+    dom.parent().next().children(".tipTxt").text("");
+    return true;
+  },
+
 
   init: function () {
     // 初始化头部.版权

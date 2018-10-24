@@ -65,10 +65,14 @@
 
 		</div>
 	</div>
+	<!--登录/注册弹窗 start	-->
+	<div class="dialog"></div>
+	<!--登录/注册弹窗 end	-->
 	<!-- footer -->
 	<div class="lay-footer"></div>
 	<script type="text/javascript" language="javascript" src="../layer_mobile/layer.js"></script>
 	<script type="text/javascript" language="javascript" src="../js/cookie.js"></script>
+	<script type="text/javascript" language="javascript" src="../js/jqMD.js"></script>
 	<script type="text/javascript" language="javascript" src="../js/config.js"></script>
 	<script type="text/javascript" language="javascript" src="../js/base.js"></script>
 	<script type="text/javascript" language="javascript" src="../js/request.js"></script>
@@ -124,7 +128,7 @@
 
 					var options = {
 						list: ".paglist",//列表标识
-						pageSize: 12,//每页列表数
+						pageSize: 10,//每页列表数
 						listTotal: res.data.length,//列表总数（选传），不传为list总数
 					}
 					$("#itemList").paging(options)

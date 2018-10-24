@@ -130,7 +130,7 @@
 
 		// 绑定页面数据
 		var userInfo = Cookies.getJSON("userInfo");
-		if(userInfo.u_state){ // 判断是否绑定字段（等待确认）
+		if(userInfo.u_bankType > 0){ // 判断是否绑定
 			$("#bangding").hide();
 			$("#isBind").show();
 		}else{
