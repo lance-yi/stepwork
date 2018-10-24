@@ -23,7 +23,9 @@ var Api = {
           Cookies.set("isLogin",true,{expires: 7,path: '/'});
           Api.getUserInfo();
           layerModelHide();
-          CONFIG.showMsg(res.message);
+          CONFIG._showMsg(res.message);
+        }else{
+          CONFIG._showMsg(res.message);
         }
       }
     })
@@ -41,7 +43,7 @@ var Api = {
           Cookies.set("userInfo",res.data[0])
           _Base.isLogin();
         }else{
-          CONFIG.showMsg(res.message);
+          CONFIG._showMsg(res.message);
         }
       }
     })
@@ -60,14 +62,14 @@ var Api = {
           if(res.state == 1){
             resolve(res.data);  
           }else{
-            CONFIG.showMsg(res.message);
+            CONFIG._showMsg(res.message);
           }
         }
       })
     })
   },
   
-  // 获取首页函数
+  // 获取首页计划
   getIndexPlane: function () {
     return new Promise((resolve)=>{
       new ajaxRequest({
@@ -79,7 +81,7 @@ var Api = {
           if(res.state == 1){
             resolve(res.data);  
           }else{
-            CONFIG.showMsg(res.message);
+            CONFIG._showMsg(res.message);
           }
         }
       })
@@ -99,21 +101,21 @@ var Api = {
           if(res.state == 1){
             resolve(res.data[0]);
           }else{
-            CONFIG.showMsg(res.message);
+            CONFIG._showMsg(res.message);
           }
         }
       })
     })
   },
   
-  // 检查是否登录
+  // 检查是否登录并跳转
   checkLogin: function (html) {
     if(Cookies.get("isLogin")){
       window.location.href = html;
     }else{
-      _Base.showMsg("请登录!");
+      CONFIG._showMsg("请登录!");
       setTimeout(function () {
-        CONFIG.showDialog("login");
+        CONFIG._showDialog("login");
       }, 500);
     }
   },
@@ -131,7 +133,27 @@ var Api = {
           if(res.state == 1){
             resolve(res.data[0]);
           }else{
-            CONFIG.showMsg(res.message);
+            CONFIG._showMsg(res.message);
+          }
+        }
+      })
+    })
+  },
+
+  // 获取当天彩种开奖
+  getNowdayOpenCode: function (key) {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.openCode,
+        param: {
+          action: 4,
+          key: key //彩种key
+        },
+        callBack:function (res) {  
+          if(res.state == 1){
+            resolve(res);
+          }else{
+            CONFIG._showMsg(res.message);
           }
         }
       })
@@ -152,12 +174,13 @@ var Api = {
           if(res.state == 1){
             resolve(res.data);
           }else{
-            CONFIG.showMsg(res.message);
+            CONFIG._showMsg(res.message);
           }
         }
       })
     })
   },
+
   // 获取咨询列表 - 带分页
   getNoticeList: function (type) {
     return new Promise((resolve)=>{
@@ -171,7 +194,7 @@ var Api = {
           if(res.state == 0){
             resolve(res);
           }else{
-            CONFIG.showMsg(res.message);
+            CONFIG._showMsg(res.message);
           }
         }
       })
@@ -190,13 +213,118 @@ var Api = {
           if(res.state == 1){
             resolve(res);
           }else{
-            CONFIG.showMsg(res.message);
+            CONFIG._showMsg(res.message);
           }
         }
       })
     })
   },
 
+  /**
+   * 个人中心
+   */
+  // 修改登录密码
+  editUserLogin: function (pwd,newPwd) {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.user,
+        param: {
+          action: 12,
+          pwd: $.md5(pwd), // pwd  旧密码   newPwd 新密码
+          newPwd: $.md5(newPwd)
+        },
+        callBack:function (res) {  
+          if(res.state == 1){
+            resolve(res);
+          }else{
+            CONFIG._showMsg(res.message);
+          }
+        }
+      })
+    })
+  },
+  
+  // 修改交易密码
+  editUserPayWord: function (pwd,newPwd) {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.user,
+        param: {
+          action: 13,
+          pwd: $.md5(pwd), // pwd  旧密码   newPwd 新密码
+          newPwd: $.md5(newPwd)
+        },
+        callBack:function (res) { 
+          if(res.state == 1){
+            resolve(res);
+          }else{
+            CONFIG._showMsg(res.message);
+          }
+        }
+      })
+    })
+  },
+  
+  // 提现
+  submitDrawing: function (money,pwd) {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.recharge,
+        param: {
+          action: 1,
+          money: money,
+          pwd: $.md5(pwd), // money  提款金额  pwd 提款密码 需要MD5加密
+        },
+        callBack:function (res) { 
+          if(res.state == 1){
+            resolve(res);
+          }else{
+            CONFIG._showMsg(res.message);
+          }
+        }
+      })
+    })
+  },
+
+  // 团队管理
+  getTeamList: function () {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.user,
+        param: {
+          action: 2
+        },
+        callBack:function (res) { 
+          if(res.state == 1){
+            resolve(res);
+          }else{
+            CONFIG._showMsg(res.message);
+          }
+        }
+      })
+    })
+  },
+  
+  // 团队佣金 3  资金明细 2
+  getGainsLosses: function (type) {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.gainsLosses,
+        param: {
+          action: type
+        },
+        callBack:function (res) { 
+          if(res.state == 1){
+            resolve(res);
+          }else{
+            CONFIG._showMsg(res.message);
+          }
+        }
+      })
+    })
+  },
+
+  // 
   init: function () {
     // this.getUserInfo();
   }

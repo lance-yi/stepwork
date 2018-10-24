@@ -1342,7 +1342,7 @@
     }
 
     //打开指定的url并显示对话框
-    $.showDialog = function(url, options)
+    $._showDialog = function(url, options)
     {
         var opt = options || {};
         opt.content = url;

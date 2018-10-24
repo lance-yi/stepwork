@@ -128,10 +128,10 @@
 			$("#extendUrl").html(res.pageUrl);
 			var clipboard = new ClipboardJS('#cut');
 			clipboard.on('success', function(e) {
-					CONFIG.showMsg("复制成功");
+					CONFIG._showMsg("复制成功");
 			});
 			clipboard.on('error', function(e) {
-					CONFIG.showMsg("目前你的浏览器不支持，请手动复制!")
+					CONFIG._showMsg("目前你的浏览器不支持，请手动复制!")
 			});
 		})
 	});

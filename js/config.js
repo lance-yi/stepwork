@@ -9,7 +9,7 @@ var CONFIG = {
       <ul class="navLst">\
           <li><a href="index.html"><em>首页</em></a></li>\
           <li><a href="javascript:void(0)" onclick="Api.checkLogin(\'expertplan.html?key=1&gmKey=1\')"><em>专家计划</em></a></li>\
-          <li><a href="award.html"><em>开奖号码</em></a></li>\
+          <li><a href="award.html?key=1"><em>开奖号码</em></a></li>\
           <li><a href="trend.html"><em>走势图表</em></a></li>\
           <li><a href="news.html"><em>行业资讯</em></a></li>\
           <li><a href="skilliinfo.html"><em>玩法技巧</em></a></li>\
@@ -71,11 +71,11 @@ var CONFIG = {
   </div>',
 
   // 显示弹出框
-  showDialog: function (path, width = 410, height = 380) {
+  _showDialog: function (path, width = 410, height = 380) {
     $(".dialog").layerModel({
       init: function () {},
       title: "提示",
-      drag: true,
+      drag: false,
       locked: true,
       head: true,
       width: width,
@@ -84,7 +84,14 @@ var CONFIG = {
     });
     $(".dialog").load('dialog-' + path + '.html');
   },
-  showMsg: function (msg) {
+
+  // 关闭弹出框
+  _closeDialog: function () {
+    layerModelHide();
+  },
+  
+  // 显示msg
+  _showMsg: function (msg) {
     layer.open({
       content: msg
       ,skin: 'msg'
@@ -92,6 +99,7 @@ var CONFIG = {
       ,time: 2 //2秒后自动关闭
     });
   },
+
   // 收藏
   _addFavorite: function () {
     var url = window.location;
@@ -113,12 +121,59 @@ var CONFIG = {
       alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
     }
   },
+
+  // 退出登录
   _logout(){
     Cookies.remove("isLogin");
     Cookies.remove("guid");
-    this.showMsg("退出成功!")
+    layerModelHide();
+    this._showMsg("退出成功!")
     _Base.isLogin();
+    window.location.href = "./index.html";
   },
+  
+  // 判断是否已经登录
+  _isLoginSuccess: function(){
+		if(!Cookies.get("isLogin")){
+			CONFIG._showMsg("非法访问,请重新登录!");
+			window.location.href = './index.html'
+			return;
+		}
+  },
+
+  // 检查提现金额函数
+  _checkDrawMoney: function (dom) {
+    if(dom.val() == ''){
+      dom.parent().next().children(".tipTxt").text("请输入提款金额");
+      return false;
+    }
+    if(isNaN(dom.val())){
+      dom.parent().next().children(".tipTxt").text("请输入正确的金额");
+      return false;
+    }
+    if(dom.val() < 0){
+      dom.parent().next().children(".tipTxt").text("提现金额不能低于10元");
+      return false;
+    }
+    if(dom.val() > Cookies.getJSON("userInfo").u_money){
+      dom.parent().next().children(".tipTxt").text("提现金额不能大于可用余额");
+      return false;
+    }
+    dom.parent().next().children(".tipTxt").text("");
+    return true;
+  },
+  
+  // 检查提现支付密码
+  _checkPayWord: function (dom) {
+    if(dom.val() == ''){
+      dom.parent().next().children(".tipTxt").text("请输入提款密码");
+      return false;
+    }
+    dom.parent().next().children(".tipTxt").text("");
+    return true;
+  },
+
+
   init: function () {
     // 初始化头部.版权
     $(".header").html(this.headHtml);

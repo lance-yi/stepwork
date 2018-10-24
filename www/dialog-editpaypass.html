@@ -1,11 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>修改交易密码</title>
 </head>
-<script type="text/javascript" language="javascript" src="../js/ui_drop.js"></script><!--选择框下拉效果-->
-<script type="text/javascript" language="javascript" src="../js/ui_inputFocus.js"></script><!--输入框获取焦点-->
+<script type="text/javascript" language="javascript" src="../js/ui_drop.js"></script>
+<!--选择框下拉效果-->
+<script type="text/javascript" language="javascript" src="../js/ui_inputFocus.js"></script>
+<!--输入框获取焦点-->
 <style>
-.form{ height:210px; overflow-y:auto; width:420px;}
+  .form{ height:210px; overflow-y:auto; width:420px;}
 .formRad{ display:inline-block; vertical-align:middle;}
 .drop{ width:310px;}
 .formChb{ width:375px; display:inline-block;}
@@ -17,42 +24,75 @@ dl.name{ margin-bottom:15px;}
 .form dl dt{ width:100px;}
 .form dl dd{margin-left: 120px;}
 .addBtn{ border-top:1px solid #e5e5e5;padding:20px 0 0 0;}
-
+.cr-red{color: red;}
 </style>
+
 <body>
-<div class="popPart">
-<h2><em></em>修改交易密码</h2>
-	<div class="form clearfix">
-    <dl class="clearfix">
+  <div class="popPart">
+    <h2><em></em>修改交易密码</h2>
+    <form class="form clearfix">
+      <dl class="clearfix">
         <dt>原交易密码</dt>
         <dd class="formRows clearfix">
-            <span class="formText"><input type="text" class="text textGray" id="yx" value="" style="width:280px;" /></span>
-            <span class="tipPos"><span class="tipTxt">请输入原密码</span></span>
+          <span class="formText"><input type="text" class="text textGray" id="payOldPwd" value="" style="width:280px;" /></span>
+          <span class="tipPos"><span class="tipTxt cr-red" style="display: none;">请输入原密码</span></span>
         </dd>
-    </dl>
-    <dl class="clearfix">
+      </dl>
+      <dl class="clearfix">
         <dt>新交易密码</dt>
         <dd class="formRows clearfix">
-            <span class="formText"><input type="password" class="text textGray" id="yx" value="" style="width:280px;" /></span>
-            <span class="tipPos"><span class="tipTxt">6-16位英文，数字，下划线</span></span>
+          <span class="formText"><input type="password" class="text textGray" id="payNewPwd" value="" style="width:280px;" /></span>
+          <span class="tipPos"><span class="tipTxt cr-red" style="display: none;">6-16位英文，数字，下划线</span></span>
         </dd>
-    </dl>
-    <dl class="clearfix">
+      </dl>
+      <dl class="clearfix">
         <dt>确认新交易密码</dt>
         <dd class="formRows clearfix">
-            <span class="formText"><input type="password" class="text textGray" id="yx" value="" style="width:280px;" /></span>
-            <span class="tipPos"><span class="tipTxt">重新输入一次密码</span></span>
+          <span class="formText"><input type="password" class="text textGray" id="payNewPwd2" value="" style="width:280px;" /></span>
+          <span class="tipPos"><span class="tipTxt cr-red" style="display: none;">重新输入一次密码</span></span>
         </dd>
-    </dl>
-    </div>
-    <div class="addBtn"><a class="btn2 btnsF16" href="javascript:void(0);">取消</a><a class="btn1 btnsF16" href="javascript:void(0);">确认</a></div>
-</div>
+      </dl>
+    </form>
+    <div class="addBtn"><a class="btn2 btnsF16" href="javascript:void(0);" onclick="layerModeHide()">取消</a><a class="btn1 btnsF16" href="javascript:void(0);" id="submitEditPayWord">确认</a></div>
+  </div>
 </body>
-</html>
 
+</html>
 <script type="text/javascript">
-$(document).ready(function(){
-$.focusColor('input.text');	
-$.focusDate('.dateText');
-});
+  $(document).ready(function () {
+    $.focusColor('input.text');
+    $.focusDate('.dateText');
+
+    $("#submitEditPayWord").on("click", function (e) {
+			e.preventDefault();
+			var payOldPwd = $("#payOldPwd");
+			var payNewPwd = $("#payNewPwd");
+			var payNewPwd2 = $("#payNewPwd2");
+			if(payOldPwd.val() == ''){
+				payOldPwd.parent().next().children(".tipTxt").text("请输入旧密码!").show();
+				return;
+			}
+			if(payNewPwd.val() == ''){
+				payNewPwd.parent().next().children(".tipTxt").text("请输入新密码!").show();
+				return;
+			}
+			if(payNewPwd2.val() == ''){
+				payNewPwd2.parent().next().children(".tipTxt").text("请输入再次输入密码!").show();
+				return;
+			}
+			if(payNewPwd2.val() != payNewPwd.val()){
+				payNewPwd2.parent().next().children(".tipTxt").text("两次密码不一致,请重新输入!").show();
+				payNewPwd.val("");
+				payNewPwd2.val("");
+				return;
+			}
+			
+			Api.editUserPayWord(payOldPwd.val(),payNewPwd.val()).then(function(res) {
+        CONFIG._showMsg(res.message);
+        CONFIG._closeDialog();
+			})
+			
+    });
+    
+  });
 </script>
