@@ -207,21 +207,41 @@
 .expertplan .leftNav {
   width: 180px;
   float: left;
+  height: 90vh;
+  overflow-y: auto;
+}
+.expertplan .leftNav::-webkit-scrollbar {
+  display: none;
+}
+.expertplan .leftNav .submenu{
+  height: auto;
+  overflow: hidden;
 }
 
-.expertplan .leftNav dt {
+.expertplan .leftNav .submenu{
   line-height: 60px;
   vertical-align: middle;
   font-size: 16px;
+  background: #F7F7F7;
+  color: #333;
 }
-
-.expertplan .leftNav dt .iconfont {
+.expertplan .leftNav .submenu div{
+  white-space: nowrap;
+}
+.expertplan .leftNav .submenu .iconfont {
   font-size: 40px;
   padding-right: 10px;
 }
+.expertplan .leftNav .submenu .icon-jiantou-xia {
+  font-size: 20px;
+  padding-right: 10px;
+  width: 20px;
+  float: right;
+}
 
-.expertplan .leftNav dd {
+.expertplan .leftNav .submenu ul li {
   line-height: 40px;
+  background: #fff;
 }
 
 .expertplan .leftNav i {
@@ -251,7 +271,7 @@
   margin-top: 8px;
 }
 
-.expertplan .leftNav dd a {
+.expertplan .leftNav .submenu a {
   display: block;
   padding-left: 60px;
 }

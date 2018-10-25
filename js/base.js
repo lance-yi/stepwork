@@ -86,9 +86,8 @@ var _Base = {
         case 18: return '广西农村信用村';
     }
   },
-
   // 彩种转换
-  filterlottery_zh: function (key) {
+  filterLottery_zh: function (key) {
     switch (parseInt(key)) {
       case 1: return '重庆时时彩';
       case 2: return '天津时时彩';
@@ -120,6 +119,72 @@ var _Base = {
     }
   },
 
+  // 彩种玩法转换
+  filterPayGame_zh: function (gmkey) {
+    switch (parseInt(gmkey)) {
+      case 1: return '万位杀1码';
+      case 2: return '千位杀1码';
+      case 3: return '百位杀1码';
+      case 4: return '十位杀1码';
+      case 5: return '个位杀1码';
+      case 6: return '万位杀2码';
+      case 7: return '千位杀2码';
+      case 8: return '百位杀2码';
+      case 9: return '十位杀2码';
+      case 10: return '个位杀2码';
+      case 11: return '万位杀3码';
+      case 12: return '千位杀3码';
+      case 13: return '百位杀3码';
+      case 14: return '十位杀3码';
+      case 15: return '个位杀3码';
+      case 16: return '前二杀1码';
+      case 17: return '后二杀1码';
+      case 18: return '前二杀2码';
+      case 19: return '后二杀2码';
+      case 20: return '前三杀1码';
+      case 21: return '中三杀1码';
+      case 22: return '后三杀1码';
+      case 23: return '前四杀1码';
+      case 24: return '后四杀1码';
+      case 25: return '五星杀1码';
+      case 27: return '五星定位1胆';
+      case 28: return '五星定位2胆';
+      case 29: return '龙虎';
+      case 30: return '万位定胆';
+      case 31: return '千位定胆';
+      case 32: return '百位定胆';
+      case 33: return '十位定胆';
+      case 34: return '个位定胆';
+      case 35: return '万位大小';
+      case 36: return '千位大小';
+      case 37: return '百位大小';
+      case 38: return '十位大小';
+      case 39: return '个位大小';
+      case 40: return '万位单双';
+      case 41: return '千位单双';
+      case 42: return '百位单双';
+      case 43: return '十位单双';
+      case 44: return '个位单双';
+      case 45: return '后二直选';
+      case 46: return '前二直选';
+      case 47: return '前三直选';
+      case 48: return '中三直选';
+      case 49: return '后三直选';
+      case 50: return '前二012路';
+      case 51: return '后二012路';
+      case 52: return '前二合值';
+      case 53: return '后二合值';
+      case 54: return '前二跨度';
+      case 55: return '后二跨度';
+      case 26: return '前三组三';
+      case 56: return '中三组三';
+      case 57: return '后三组三';
+      case 58: return '前三组六';
+      case 59: return '中三组六';
+      case 60: return '后三组六';
+      default: return '未知';
+    }
+  },
   // 判断是否登录显示对应的资料
   isLogin: function () {
     if(Cookies.get("isLogin")){
