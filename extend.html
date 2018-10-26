@@ -6,12 +6,12 @@
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="../css/base.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/common.css" />
-	<link rel="stylesheet" type="text/css" href="../css/page.css" />
-	<script type="text/javascript" language="javascript" src="../js/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" language="javascript" src="../js/layerModel.js"></script>
-	<script type="text/javascript" language="javascript" src="../js/clipboard.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/common.css" />
+	<link rel="stylesheet" type="text/css" href="./css/page.css" />
+	<script type="text/javascript" language="javascript" src="./js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" language="javascript" src="./js/layerModel.js"></script>
+	<script type="text/javascript" language="javascript" src="./js/clipboard.min.js"></script>
 </head>
 
 <body>
@@ -43,7 +43,7 @@
 			<div class="way clearfix">
 				<div class="left">
 					<div class="th">复制一下内容，发给您的好友 <span id="cut" data-clipboard-action="copy"data-clipboard-target="#extendUrl" style="color: #108EE9;float: right;cursor: pointer; padding-right: 10px;">点击复制</span></div>
-					<textarea class="td" id="extendUrl" style="border: none;width: 100%">https://hong.cp.360.cn/experts/index.html</textarea>
+					<textarea class="td" id="extendUrl" style="border: none;width: 100%">请登录之后才会有推广地址...</textarea>
 				</div>
 				<div class="right">
 					<i class="iconfont icon-weixin"></i>
@@ -119,11 +119,11 @@
 	<!--登录/注册弹窗 end	-->
 </body>
 <script type="text/javascript" language="javascript" src="../layer_mobile/layer.js"></script>
-<script type="text/javascript" language="javascript" src="../js/cookie.js"></script>
-<script type="text/javascript" language="javascript" src="../js/jqMD.js"></script>
-<script type="text/javascript" language="javascript" src="../js/config.js"></script>
-<script type="text/javascript" language="javascript" src="../js/base.js"></script>
-<script type="text/javascript" language="javascript" src="../js/request.js"></script>
+<script type="text/javascript" language="javascript" src="./js/cookie.js"></script>
+<script type="text/javascript" language="javascript" src="./js/jqMD.js"></script>
+<script type="text/javascript" language="javascript" src="./js/config.js"></script>
+<script type="text/javascript" language="javascript" src="./js/base.js"></script>
+<script type="text/javascript" language="javascript" src="./js/request.js"></script>
 <script>
 	$(document).ready(function () {
 		Api.getBasicinfoExtend().then(function (res) {
@@ -136,6 +136,8 @@
 			clipboard.on('error', function(e) {
 					CONFIG._showMsg("目前你的浏览器不支持，请手动复制!")
 			});
+		}).catch(function (err)	{
+			console.log(err)
 		})
 	});
 </script>

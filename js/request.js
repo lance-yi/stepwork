@@ -11,7 +11,7 @@ var Api = {
   // 登录
   login: function (name,pwd) {
     new ajaxRequest({
-      url: this.user,
+      url: Api.user,
       param: {
         action: 17,
         name: name,
@@ -22,7 +22,7 @@ var Api = {
           Cookies.set("guid",res.pageUrl,{expires: 7, path: '/'});
           Cookies.set("isLogin",true,{expires: 7,path: '/'});
           Api.getUserInfo();
-          layerModelHide();
+          CONFIG._closeDialog();
           CONFIG._showMsg(res.message);
         }else{
           CONFIG._showMsg(res.message);
@@ -30,11 +30,11 @@ var Api = {
       }
     })
   },
-
+  
   // 注册
   register: function (name, pwd, pid) {
     new ajaxRequest({
-      url: this.user,
+      url: Api.user,
       param: {
         action: 30,
         name: name,
@@ -44,7 +44,7 @@ var Api = {
       callBack:function (res) { 
         console.log(res); 
         if(res.state == 1){
-          layerModelHide();
+          CONFIG._closeDialog();
           CONFIG._showMsg(res.message);
         }else{
           CONFIG._showMsg(res.message);
@@ -56,13 +56,13 @@ var Api = {
   // 获取用户信息
   getUserInfo: function () {
     new ajaxRequest({
-      url: this.user,
+      url: Api.user,
       param: {
         action: 1
       },
       callBack:function (res) {  
         if(res.state == 1){
-          Cookies.set("userInfo",res.data[0])
+          Cookies.set("userInfo",res.data[0],{expires: 7, path: '/'})
           _Base.isLogin();
         }else{
           CONFIG._logout();
@@ -74,9 +74,9 @@ var Api = {
   
   // 获取咨询函数
   getIndexNotice: function (type) {
-    return new Promise((resolve)=>{
+    return new Promise(function (resolve){
       new ajaxRequest({
-        url: this.notice,
+        url: Api.notice,
         param: {
           action: 3,
           type: type
@@ -94,9 +94,9 @@ var Api = {
   
   // 获取首页计划
   getIndexPlane: function () {
-    return new Promise((resolve)=>{
+    return new Promise(function(resolve){
       new ajaxRequest({
-        url: this.gamerelation,
+        url: Api.gamerelation,
         param: {
           action: 2
         },
@@ -113,9 +113,9 @@ var Api = {
   
   // 获取咨询详情函数
   getNoticeDetail: function (id) {
-    return new Promise((resolve)=>{
+    return new Promise(function(resolve){
       new ajaxRequest({
-        url: this.notice,
+        url: Api.notice,
         param: {
           action: 4,
           id: id
@@ -145,9 +145,9 @@ var Api = {
 
   // 获取当前彩种开奖
   getNowOpenCode: function (key) {
-    return new Promise((resolve)=>{
+    return new Promise(function(resolve){
       new ajaxRequest({
-        url: this.openCode,
+        url: Api.openCode,
         param: {
           action: 2,
           key: key //彩种key
@@ -165,9 +165,9 @@ var Api = {
 
   // 获取当天彩种开奖
   getNowdayOpenCode: function (key) {
-    return new Promise((resolve)=>{
+    return new Promise(function(resolve){
       new ajaxRequest({
-        url: this.openCode,
+        url: Api.openCode,
         param: {
           action: 4,
           key: key //彩种key
@@ -185,9 +185,9 @@ var Api = {
 
   // 查询计划
   getExpertPlanList: function (key,gmKey) {
-    return new Promise((resolve,rejects)=>{
+    return new Promise(function(resolve,rejects){
       new ajaxRequest({
-        url: this.gamerelation,
+        url: Api.gamerelation,
         param: {
           action: 1,
           gt_key: key, //gt_key 彩种   gm_key 玩法   pwd_guid 用户登录返回GUID
@@ -206,9 +206,9 @@ var Api = {
 
   // 获取咨询列表 - 带分页
   getNoticeList: function (type) {
-    return new Promise((resolve)=>{
+    return new Promise(function(resolve){
       new ajaxRequest({
-        url: this.notice,
+        url: Api.notice,
         param: {
           action: 1,
           type: type // type 类型  0行业资讯  1玩法技巧
@@ -226,9 +226,9 @@ var Api = {
 
   // 推广赚钱
   getBasicinfoExtend: function () {
-    return new Promise((resolve)=>{
+    return new Promise(function(resolve,rejects){
       new ajaxRequest({
-        url: this.basicinfo,
+        url: Api.basicinfo,
         param: {
           action: 3
         },
@@ -236,7 +236,7 @@ var Api = {
           if(res.state == 1){
             resolve(res);
           }else{
-            CONFIG._showMsg(res.message);
+            rejects(res);
           }
         }
       })
@@ -248,9 +248,9 @@ var Api = {
    */
   // 修改登录密码
   editUserLogin: function (pwd,newPwd) {
-    return new Promise((resolve)=>{
+    return new Promise(function(resolve){
       new ajaxRequest({
-        url: this.user,
+        url: Api.user,
         param: {
           action: 12,
           pwd: $.md5(pwd), // pwd  旧密码   newPwd 新密码
@@ -269,9 +269,9 @@ var Api = {
   
   // 修改交易密码
   editUserPayWord: function (pwd,newPwd) {
-    return new Promise((resolve)=>{
+    return new Promise(function(resolve){
       new ajaxRequest({
-        url: this.user,
+        url: Api.user,
         param: {
           action: 13,
           pwd: $.md5(pwd), // pwd  旧密码   newPwd 新密码
@@ -290,7 +290,7 @@ var Api = {
   
   // 提现
   submitDrawing: function (money,pwd) {
-    return new Promise((resolve)=>{
+    return new Promise(function(resolve){
       new ajaxRequest({
         url: this.recharge,
         param: {
@@ -311,9 +311,9 @@ var Api = {
 
   // 团队管理
   getTeamList: function () {
-    return new Promise((resolve)=>{
+    return new Promise(function(resolve){
       new ajaxRequest({
-        url: this.user,
+        url: Api.user,
         param: {
           action: 2
         },
@@ -330,9 +330,9 @@ var Api = {
   
   // 团队佣金 3  资金明细 2
   getGainsLosses: function (type) {
-    return new Promise((resolve)=>{
+    return new Promise(function(resolve){
       new ajaxRequest({
-        url: this.gainsLosses,
+        url: Api.gainsLosses,
         param: {
           action: type
         },
@@ -347,9 +347,9 @@ var Api = {
   
   // 绑定银行卡
   bindUserBank: function (card,type,name) {
-    return new Promise((resolve)=>{
+    return new Promise(function(resolve){
       new ajaxRequest({
-        url: this.user,
+        url: Api.user,
         param: {
           action: 11,
           bankName: name,
@@ -365,15 +365,7 @@ var Api = {
     })
   },
 
-  init: function () {
-    // this.getUserInfo();
-  }
+  init: function () {}
 }
 
 Api.init();
-
-
-// http://211.149.192.163//ajax/user.ashx?action=11';//绑定银行卡     pwd_guid 用户登录返回GUID    bankType 银行类型 1支付宝 2微信    bankCard 卡号   bankName 姓名
-
-
-

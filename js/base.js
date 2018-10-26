@@ -210,7 +210,7 @@ var _Base = {
     if(Cookies.get("isLogin")){
       $("#yesLogin").show();
       $("#noLogin").hide();
-      this.userInfo = Object.assign(Cookies.getJSON("userInfo"));
+      this.userInfo = Cookies.getJSON("userInfo");
       $("#nickName").html(this.userInfo.u_name)
     }else{
       $("#noLogin").show();
@@ -218,6 +218,29 @@ var _Base = {
     }
   },
 
+  /**
+   * 全局声明函数
+   */
+  submitLogin: function (){
+    if ($("#username").val() == '') {
+      CONFIG._showMsg("请输入账号")
+      return
+    }
+    if($("#password").val() == ''){
+      CONFIG._showMsg("请输入密码")
+      return
+    }
+    Api.login($("#username").val(),$("#password").val());
+  },
+  
+  // 相应回车键
+  enterPress: function(e) {
+    var e = e || window.event;
+    if(e.keyCode == 13){
+      _Base.submitLogin();
+    }
+  },
+  
   // 初始化
   init: function(){
     // 监听顶部
@@ -277,7 +300,7 @@ var _Base = {
 
     // 提现
     $(document).on("click", "#Withdrawcash", function () {
-      CONFIG._showDialog("drawing",450,430);
+      CONFIG._showDialog("drawing",450,460);
     })
 
     // 充值
@@ -290,8 +313,6 @@ var _Base = {
      */
     this.isLogin();
     
-
-    console.log(Cookies.getJSON("userInfo"))
   },
   
 }

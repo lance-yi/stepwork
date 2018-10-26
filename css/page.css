@@ -211,6 +211,9 @@
   overflow-y: auto;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
+  width: -webkit-calc(180px);
+  width: -moz-calc(180px);
+  width: calc(180px);
 }
 .expertplan .leftNav::-webkit-scrollbar {
   display: none;
@@ -228,30 +231,39 @@
   color: #333;
 }
 .expertplan .leftNav .submenu div{
-  white-space: nowrap;
+  width: 100%;
   cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
 }
 .expertplan .leftNav .submenu .iconfont {
   font-size: 40px;
-  padding-right: 10px;
+  padding-right: 5px;
+  text-align: left;
+  display: inline-block;
 }
 .expertplan .leftNav .submenu .icon-jiantou-xia {
+  display: inline-block;
   font-size: 20px;
-  padding-right: 10px;
+  padding-left: 10px;
   width: 20px;
-  float: right;
+  text-align: right;
 }
 
 .expertplan .leftNav .submenu ul li {
   line-height: 40px;
   background: #fff;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .expertplan .leftNav i {
   width: 50px;
   display: inline-block;
-  float: left;
   text-align: center;
+  vertical-align:middle;
 }
 
 .expertplan .leftNav i.icon-cqssc {
@@ -276,7 +288,7 @@
 
 .expertplan .leftNav .submenu a {
   display: block;
-  padding-left: 60px;
+  padding-left: 20px;
 }
 
 .expertplan .leftNav .cur a,

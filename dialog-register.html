@@ -10,7 +10,7 @@
 <style>
 	.form dl dd {margin-left: 0px;}
 	.login-base h2{text-align:left;margin-top: -10px;}
-	.verifycodeImg {float: right;}
+	.verifycodePidImg {float: right;}
 	.register .formText{
 		display: block;
 		line-height: 35px;
@@ -52,7 +52,7 @@
 				<dl class="clearfix">
 					<dd class="formRows formPassword clearfix">
 						<span class="formText">
-							<input type="text" class="text textGray" id="code" placeholder="请输入推荐码（选填）" style="width:380px;" />
+							<input type="text" class="text textGray" id="codePid" placeholder="请输入推荐码（选填）" style="width:380px;" />
 						</span>
 						<span class="tipPos"><span class="tipTxt tipErr"></span></span>
 
@@ -71,13 +71,13 @@
 		</div>
 	</div>
 </body>
-<script src="../js/request.js"></script>
+<script src="./js/request.js"></script>
 <script>
 	$(document).ready(function () {
 		var username = $("#username"); 
 		var password = $("#password"); 
 		var password2 = $("#password2");
-		var code = $("#code");
+		var codePid = $("#codePid");
 
 		username.blur(function () {
 			CONFIG._checkUserName(username);
@@ -98,7 +98,7 @@
 
 		$("#submitRegisterFrom").on("click", function () {
 			if(CONFIG._checkUserName && CONFIG._checkUserName && password.val() == password2.val()){
-				Api.register(username.val(),password.val(),code.val());
+				Api.register(username.val(),password.val(),codePid.val());
 			}
 		});
 

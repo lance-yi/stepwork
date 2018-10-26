@@ -1,3 +1,11 @@
+// 导入es6语法支持
+var head = document.getElementsByTagName('head')[0];
+var es6script = document.createElement('script');
+es6script.setAttribute('type','text/javascript');
+es6script.setAttribute('src','./js/bluebird.min.js');
+head.appendChild(es6script);
+
+
 // 网站公共方法、对象、初始化
 var CONFIG = {
   pathName: window.location.pathname,
@@ -13,7 +21,7 @@ var CONFIG = {
           <li><a href="trend.html"><em>走势图表</em></a></li>\
           <li><a href="news.html"><em>行业资讯</em></a></li>\
           <li><a href="skilliinfo.html"><em>玩法技巧</em></a></li>\
-          <li><a href="javascript:void(0)" onclick="Api.checkLogin(\'extend.html\')"><em>推广赚钱</em></a></li>\
+          <li><a href="extend.html"><em>推广赚钱</em></a></li>\
       </ul>\
     </div>\
     <div class="login" id="noLogin">\
@@ -69,7 +77,8 @@ var CONFIG = {
     </div>\
   </div>\
   </div>',
-
+  
+  // 玩法对象
   _payGameList: [
     // 重庆时时彩
     {
@@ -138,11 +147,13 @@ var CONFIG = {
         { key: 59 , name: '中三组六'},
         { key: 60 , name: '后三组六'},
       ]
-    },
+    }
   ],
 
   // 显示弹出框
-  _showDialog: function (path, width = 410, height = 380) {
+  _showDialog: function (path, width, height) {
+    if(!arguments[1]) width = 410;
+    if(!arguments[2]) height = 380;
     $(".dialog").layerModel({
       init: function () {},
       title: "提示",
@@ -153,8 +164,7 @@ var CONFIG = {
       height: height,
       isClose: true,
     });
-    // 本地 和 服务器端配置
-    $(".dialog").load(window.location.href.indexOf("www") > -1 ? './dialog-' + path + '.html' : './www/dialog-' + path + '.html');
+    $(".dialog").load('./dialog-' + path + '.html');
   },
 
   // 关闭弹出框
@@ -195,10 +205,11 @@ var CONFIG = {
   },
 
   // 退出登录
-  _logout(){
+  _logout: function () {
     Cookies.remove("isLogin");
     Cookies.remove("guid");
-    layerModelHide();
+    Cookies.remove("userInfo");
+    this._closeDialog();
     this._showMsg("退出成功!")
     _Base.isLogin();
     window.location.href = "./index.html";
@@ -266,6 +277,7 @@ var CONFIG = {
     dom.parent().next().children(".tipTxt").text("");
     return true;
   },
+
   // 检查注册密码
   _checkRegisterWord: function (dom) {
     if(dom.val() == ''){
@@ -291,7 +303,6 @@ var CONFIG = {
     dom.parent().next().children(".tipTxt").text("");
     return true;
   },
-
 
   init: function () {
     // 初始化头部.版权
