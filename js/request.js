@@ -185,7 +185,7 @@ var Api = {
 
   // 查询计划
   getExpertPlanList: function (key,gmKey) {
-    return new Promise((resolve)=>{
+    return new Promise((resolve,rejects)=>{
       new ajaxRequest({
         url: this.gamerelation,
         param: {
@@ -197,7 +197,7 @@ var Api = {
           if(res.state == 1){
             resolve(res.data);
           }else{
-            CONFIG._showMsg(res.message);
+            rejects(res);
           }
         }
       })
@@ -339,15 +339,32 @@ var Api = {
         callBack:function (res) { 
           if(res.state == 1){
             resolve(res);
-          }else{
-            CONFIG._showMsg(res.message);
+          }
+        }
+      })
+    })
+  },
+  
+  // 绑定银行卡
+  bindUserBank: function (card,type,name) {
+    return new Promise((resolve)=>{
+      new ajaxRequest({
+        url: this.user,
+        param: {
+          action: 11,
+          bankName: name,
+          bankType: type,
+          bankCard: card
+        },
+        callBack:function (res) { 
+          if(res.state == 1){
+            resolve(res);
           }
         }
       })
     })
   },
 
-  // 
   init: function () {
     // this.getUserInfo();
   }
@@ -355,30 +372,8 @@ var Api = {
 
 Api.init();
 
-// 首页
-// http://211.149.192.163/ajax/user.ashx?action=17';//登陆请求   name  账号         pwd   密码
-// http://211.149.192.163//ajax/user.ashx?action=30';//注册请求  name  账号        pwd    密码           pid   推荐人编号
-// http://211.149.192.163//ajax/notice.ashx?action=3';//首页公告     type 类型  0行业资讯  1玩法技巧
-// http://211.149.192.163//ajax/gamerelation.ashx?action=2';//首页计划显示     无参数
-// 专家计划
-// http://211.149.192.163//ajax/openCode.ashx?action=2';//当前开奖     key 彩种 
-// http://211.149.192.163//ajax/gamerelation.ashx?action=1';//查询计划  gt_key 彩种   gm_key(123)  玩法   pwd_guid 用户登录返回GUID
-// 开奖号码
-// http://211.149.192.163//ajax/openCode.ashx?action=4';//当天开奖    key 彩种 
-// 行业资讯 玩法技巧
-// http://211.149.192.163//ajax/notice.ashx?action=1';//活动分类     type 类型  0行业资讯  1玩法技巧     带分页返回
-// http://211.149.192.163//ajax/notice.ashx?action=4';//活动详细    id  公告编号
-// 推广赚钱
-// http://211.149.192.163//ajax/basicinfo.ashx?action=3';//获取推广地址   pwd_guid 用户登录返回GUID
-// 会员中心
-// http://211.149.192.163//ajax/user.ashx?action=1';//用户信息          pwd_guid 用户登录返回GUID
+
 // http://211.149.192.163//ajax/user.ashx?action=11';//绑定银行卡     pwd_guid 用户登录返回GUID    bankType 银行类型 1支付宝 2微信    bankCard 卡号   bankName 姓名
-// http://211.149.192.163//ajax/recharge.ashx?action=1';//提现          pwd_guid 用户登录返回GUID   money  提款金额  pwd 提款密码 需要MD5加密
-// http://211.149.192.163//ajax/user.ashx?action=12';//修改登陆密码  pwd_guid 用户登录返回GUID   pwd  旧密码   newPwd 新密码 
-// http://211.149.192.163//ajax/user.ashx?action=13';//修改提现密码  pwd_guid 用户登录返回GUID   pwd  旧密码   newPwd 新密码
-// http://211.149.192.163//ajax/user.ashx?action=2';//团队管理          pwd_guid 用户登录返回GUID   
-// http://211.149.192.163//ajax/gainsLosses.ashx?action=3';//团队佣金   pwd_guid 用户登录返回GUID
-// http://211.149.192.163//ajax/gainsLosses.ashx?action=2';//资金明细   pwd_guid 用户登录返回GUID
 
 
 

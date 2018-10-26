@@ -209,6 +209,8 @@
   float: left;
   height: 90vh;
   overflow-y: auto;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
 }
 .expertplan .leftNav::-webkit-scrollbar {
   display: none;
@@ -227,6 +229,7 @@
 }
 .expertplan .leftNav .submenu div{
   white-space: nowrap;
+  cursor: pointer;
 }
 .expertplan .leftNav .submenu .iconfont {
   font-size: 40px;
@@ -286,9 +289,9 @@
 .rightPlan {
   float: left;
   width: 999px;
-  border-left: 1px solid #e5e5e5;
+  /* border-left: 1px solid #e5e5e5; */
   padding-left: 20px;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 .rightPlan .nowprize {
@@ -854,6 +857,7 @@
 .memList .tab-bd table {
   line-height: 50px;
   text-align: left;
+  border: 1px solid #e5e5e5;
 }
 
 .memList .tab-bd table th,

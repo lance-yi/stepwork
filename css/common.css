@@ -1,7 +1,11 @@
 @charset "utf-8";
 
 .wid1200{width:1200px; margin:0 auto;}
-
+.cr-red {color: red;}
+.cr-main {color: #FD5B59;}
+.cr-success{ color: #19be6b; }
+.cr-warning{color: #ff9900;}
+.cr-error {color: #ed4014}
 
 /*头部*/
 .header{ height:80px; z-index:999; position:fixed; width: 100%; position: fixed;}
@@ -145,5 +149,107 @@
 .register .tab-bd {padding:20px 55px 40px;}
 
 
+/* ----------------公共表格样式--------------- */
+.ui-table-wrapper{
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #dcdee2;
+  border-bottom: 0;
+  border-right: 0;
+}
+.ui-table{
+  box-sizing: border-box;
+  width: inherit;
+  height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  color: #515a6e;
+  font-size: 12px;
+  background-color: #fff;
+}
+.ui-table::before,
+.ui-table::after{
+  content: "";
+  position: absolute;
+  background-color: #dcdee2;
+}
+.ui-table::before{
+  width: 100%;
+  height: 1px;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.ui-table table{
+  table-layout: fixed;
+}
+.ui-table th,
+.ui-table td{
+  min-width: 0;
+  height: 45px;
+  box-sizing: border-box;
+  text-align: left;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  border-bottom: 1px solid #e8eaec;
+}
+.ui-table th{
+  height: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: #f8f8f9;	
+}
+.ui-table td{
+  background-color: #fff;
+  transition: background-color .2s ease-in-out;
+}
+.ui-table .ui-table-cell{
+  padding-left: 18px;
+  padding-right: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-all;
+  box-sizing: border-box;
+}
+.ui-table-header{
+  overflow: hidden;
+}
+.ui-table .ui-table-body table tr:hover:not(.ui-table-lasttr) td {
+  background: #ebf7ff;
+}
+.ui-table .ui-table-body .ui-table-lasttr td{
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+}
+.ui-table .ui-table-body .ui-table-lasttr td i{
+  color: #ED686C;
+}
+.ui-table-tips{
+  display: none;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.ui-table table{
+  width: 100%;
+}
+.ui-table-tips table td{
+  text-align: center;
+  height: 150px;
+  font-size: 20px;
+}
+.ui-table-border th,
+.ui-table-border td{
+  border-right: 1px solid #e8eaec;
+}
 
-
+/* 主题样式 */
+.ui-table-default td,
+.ui-table-default th{
+  height: 36px;
+}
+.ui-table-default .ui-table-body table tr:nth-child(2n+1) td{
+  background: #ebf7ff;
+}

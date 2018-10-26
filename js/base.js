@@ -59,10 +59,8 @@ var _Base = {
   // 级别类型中文
   filterRank: function (type) {
     switch (type) {
-      case 1: return "管理员";
-      case 2: return "管理员1";
-      case 3: return "管理员2";
-      case 4: return "管理员3";
+      case 10000: return "总代理";
+      default: return "代理";
     }
   },
 
@@ -70,28 +68,50 @@ var _Base = {
   filterBankType: function(number) {
     switch (number) {
         case 0: return '未绑定';
-        case 1: return '工商银行';
-        case 2: return '建设银行';
-        case 3: return '中国银行';
-        case 4: return '农业银行';
-        case 5: return '招商银行';
-        case 6: return '交通银行';
-        case 7: return '中信银行';
-        case 8: return '兴业银行';
-        case 9: return '光大银行';
-        case 10: return '浦发银行';
-        case 11: return '民生银行';
-        case 15: return '邮政银行';
-        case 17: return '支付宝';
-        case 18: return '广西农村信用村';
+        case 1: return '支付宝';
+        case 2: return '微信';
     }
   },
+  
   // 彩种转换
   filterLottery_zh: function (key) {
     switch (parseInt(key)) {
       case 1: return '重庆时时彩';
       case 2: return '天津时时彩';
       case 3: return '福彩3D';
+      case 4: return '体彩P3';
+      case 5: return '广东11选5';
+      case 6: return '江西11选5';
+      case 7: return '江苏快3';
+      case 8: return '新疆时时彩';
+      case 10: return '5分彩';
+      case 11: return '分分彩';
+      case 12: return '3分彩';
+      case 13: return '体彩P5';
+      case 14: return '山东11选5';
+      case 15: return '上海11选5';
+      case 16: return '韩国1点5分彩';
+      case 17: return '吉林快3';
+      case 18: return '广西快3';
+      case 19: return '安徽快3';
+      case 20: return '北京PK10';
+      case 21: return '北京5分彩';
+      case 22: return '重庆幸运农场';
+      case 23: return '香港六合彩';
+      case 24: return '幸运28';
+      case 28: return '重庆牛牛';
+      case 29: return '5分牛牛';
+      case 30: return '3分PK10';
+      default: return '未知';
+    }
+  },
+
+  // 彩种玩法转换
+  filterPayGame_zh: function (gmkey) {
+    switch (parseInt(gmkey)) {
+      case 1: return '定位胆个位杀';
+      case 2: return '龙虎玩法';
+      case 3: return '定位胆双胆杀';
       case 4: return '体彩P3';
       case 5: return '广东11选5';
       case 6: return '江西11选5';

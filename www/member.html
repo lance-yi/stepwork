@@ -33,11 +33,11 @@
 			<div class="info">
 				<div class="img"><img src="../images/default/head.png" /></div>
 				<div class="name"><em id="u_name">janena2008</em><span><i class="iconfont icon-vipffb400"></i>优惠vip</span></div>
-				<div class="jibie">级别：总代理</div>
+				<div class="jibie" id="u_jibie"></div>
 				<div class="bdxx">
 					<a href="javascript:void(0);" id="bangding">绑定信息</a>
 					<div id="isBind">
-						<p id="u_phone" style="margin-bottom: 5px;"></p>
+						<p id="u_bankType" style="margin-bottom: 5px;"></p>
 						<p id="u_bankCard" style="margin-bottom: 5px;"></p>
 					</div>
 				</div>
@@ -88,10 +88,15 @@
 
 					<div class="main-con" style="display:none;">
 						<table width="100%" id="moneyDetail">
+							<!-- 资料明细列表 -->
 							<tr>
 								<th width="25%">交易时间</th>
-								<th width="25%">金额(元)</th>
-								<th width="25%">明细</th>
+								<th width="25%">交易金额(元)</th>
+								<th width="25%">交易明细</th>
+								<th width="25%">账户余额</th>
+							</tr>
+							<tr>
+								<td colspan="4" style="text-align: center;"><span>暂无数据</span></td>
 							</tr>
 						</table>
 						<div class="page" id="moneyDetailPage">
@@ -137,9 +142,10 @@
 			$("#bangding").show();
 			$("#isBind").hide();
 		}
-		$("#u_name").html(userInfo.u_name);
 		$("#u_money").html(_Base.formatCurrency(userInfo.u_money));
-		$("#u_phone").html("手机号: " + userInfo.u_phone);
+		$("#u_name").html(userInfo.u_name);
+		$("#u_jibie").html("级别: " + _Base.filterRank(userInfo.u_id));
+		$("#u_bankType").html("收款类型: " + _Base.filterBankType(userInfo.u_bankType));
 		$("#u_bankCard").html("银行卡号: " + userInfo.u_bankCard);
 		
 		// 团队管理
@@ -171,7 +177,7 @@
 		// 资金明细
 		function GetMoneyDetail() {
 			Api.getGainsLosses(2).then(function(res){
-				var htmlStr = "<tr><th width=\"25%\">交易时间</th><th width=\"25%\">交易金额</th><th width=\"25%\">交易明细</th><th width=\"25%\">账户余额</th></tr>";
+				var htmlStr = "<tr><th width=\"25%\">交易时间</th><th width=\"25%\">交易金额(元)</th><th width=\"25%\">交易明细</th><th width=\"25%\">账户余额</th></tr>";
 				res.data.forEach( function(item,index){
 					htmlStr += "<tr><td>"+ item.mc_addtime +"</td><td>"+ _Base.formatCurrency(item.mc_changemoney) +"</td><td>"+ item.mc_remark  +"</td><td><span class=\"price\">"+ _Base.formatCurrency(item.mc_aftermoney) +"</span></td></tr>";
 				});
