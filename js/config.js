@@ -153,7 +153,8 @@ var CONFIG = {
       height: height,
       isClose: true,
     });
-    $(".dialog").load('dialog-' + path + '.html');
+    // 本地 和 服务器端配置
+    $(".dialog").load(window.location.href.indexOf("www") > -1 ? './dialog-' + path + '.html' : './www/dialog-' + path + '.html');
   },
 
   // 关闭弹出框
