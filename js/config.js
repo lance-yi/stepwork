@@ -182,6 +182,14 @@ var CONFIG = {
     });
   },
 
+  // 显示警告框
+  _showAlert: function (title,msg) {
+    layer.open({
+      title: [title,'background-color: #0088d; color:#fff;']
+      ,content: msg
+    });
+  },
+
   // 收藏
   _addFavorite: function () {
     var url = window.location;

@@ -45,7 +45,7 @@ var Api = {
         console.log(res); 
         if(res.state == 1){
           CONFIG._closeDialog();
-          CONFIG._showMsg(res.message);
+          CONFIG._showAlert("温馨提示",res.message);
         }else{
           CONFIG._showMsg(res.message);
         }

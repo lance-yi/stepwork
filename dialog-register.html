@@ -73,12 +73,17 @@
 </body>
 <script src="./js/request.js"></script>
 <script>
-	$(document).ready(function () {
+	$(document).ready(function () {	
 		var username = $("#username"); 
 		var password = $("#password"); 
 		var password2 = $("#password2");
 		var codePid = $("#codePid");
-
+		
+		// 判断是否是推测地址打开
+		var extendId = window.location.href.split("?")[1];
+		if(extendId){
+			codePid.val(extendId).css("disable",true)
+		}
 		username.blur(function () {
 			CONFIG._checkUserName(username);
 		})

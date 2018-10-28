@@ -53,6 +53,8 @@
 			<div class="planList clearfix">
 				<div class="ui-table-wrapper" id="planeList">
 					<div class="ui-table ui-table-default ui-table-border">
+						<!-- 直选号码显示 -->
+						<textarea id="zhixuanBox" rows="3" style="width: 100%;box-sizing: border-box;border:1px solid #FD5B59;margin-bottom: 10px;font-size: 14px;padding: 5px; display: none;"></textarea>
 						<!-- 头部 -->
 						<div class="ui-table-header">
 							<table cellspacing="0" cellpadding="0" border="0">
@@ -163,22 +165,24 @@
 					var evalArr = [],
 						stepArr = [],
 						htmlStr = "";
-					// 	Object.keys(res[0]).forEach(function (key,index) {
-					// 	evalArr = res[0][key].split("\n");
-					// 	planeList[index] = $.extend({
-					// 		list: evalArr
-					// 	});
-					// });
 					stepArr = res[0].gr_money1.split("\n");
 					// 返回内容有问题，删除数组前三个
 					stepArr.splice(0,3);
+					// 处理直选问题
+					if(gmKey == 45 || gmKey == 46 || gmKey == 47 || gmKey == 48 || gmKey == 49){
+						console.log(stepArr)
+						$("#zhixuanBox").show().text(stepArr[0]);
+						stepArr.splice(0,1);
+					}else{
+						$("#zhixuanBox").hide();
+					}
 					stepArr.forEach(function (items) {
 						evalArr = items.split(" ");
 						planeList.push(evalArr);
 					})
 					planeList.forEach(function (element, index) {
 						htmlStr += '<tr>';
-						if(index < 17){
+						if(index < 30){
 							element.forEach(function (item, _index) {
 								if(item.indexOf("中") == 0) {
 									htmlStr += '<td><div class="ui-table-cell cr-main">' + item + '</div></td>';
@@ -197,6 +201,8 @@
 					var contxt = $("#planeList .ui-table-tips");
 					$("#planeList .ui-table-tips .ui-table-cell span").html(err.message)
 					contxt.show();
+					CONFIG._closeDialog();
+					CONFIG._showDialog("recharge",1030,650)
 				})
 			}
 			GetExpertPlanList(key, gmKey);

@@ -99,8 +99,10 @@ dl.name{ margin-bottom:15px;}
         cardType.text().indexOf("支付宝") > -1 ? 1 : 2,
         realName.val()
       ).then(function (res) {
-        CONFIG._showMsg(res.message)
-        window.location.reload();
+        CONFIG._showMsg(res.message);
+        setTimeout(function () {
+          window.location.reload();
+        },1000)
       })
 
     })
