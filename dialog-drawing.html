@@ -84,7 +84,7 @@ dl.name{ margin-bottom:15px;}
 
     var userInfo = Cookies.getJSON("userInfo")
     $("#ky_money").html("￥" + _Base.formatCurrency(userInfo.u_money));
-    $("#ali_number").html((userInfo.bankType == 1 ? "<i class=\"iconfont icon-zhifubao\"></i>支付宝号 " : "<i class=\"iconfont icon-weixin\"></i>微信号") + userInfo.u_bankCard);
+    $("#ali_number").html((userInfo.u_bankType == 1 ? "<i class=\"iconfont icon-zhifubao\"></i>支付宝号 " : "<i class=\"iconfont icon-weixin\"></i>微信号") + userInfo.u_bankCard);
 
     var drawMoney = $("#drawMoney");
     var passWord = $("#passWord");

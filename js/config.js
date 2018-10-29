@@ -29,7 +29,7 @@ var CONFIG = {
       <a href="javascript:void(0)" onclick="CONFIG._addFavorite()">收藏</a>\
     </div>\
     <div class="menber" id="yesLogin"  style="display: none;">\
-      <a class="mb" href="member.html" id="nickName">janena</a>\
+      <a class="mb" href="member.html" id="nickName"></a>\
       <a class="quit" href="javascript:void(0);" onclick="CONFIG._logout()">退出</a>\
     </div>\
   </div>',
