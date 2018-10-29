@@ -240,6 +240,21 @@ var _Base = {
       _Base.submitLogin();
     }
   },
+
+  // 随机号码生成
+  getMoble: function() {
+    var prefixArray = new Array("130", "131", "132", "133", "135", "137", "138", "170", "187", "189");
+    var i = parseInt(10 * Math.random());
+    var prefix = prefixArray[i];
+    for (var j = 0; j < 8; j++) {
+      if(j < 5){
+        prefix = prefix + "*";
+      }else{
+        prefix = prefix + Math.floor(Math.random() * 10);
+      }
+    }
+    return prefix;
+  },
   
   // 初始化
   init: function(){
