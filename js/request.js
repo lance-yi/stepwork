@@ -1,4 +1,4 @@
-var baseUrl = 'http://211.149.192.163/ajax';
+﻿var baseUrl = 'http://122.114.58.75/ajax';
 var Api = {
   user: baseUrl + "/user.ashx",
   notice: baseUrl + '/notice.ashx',

@@ -1,4 +1,4 @@
-// 导入es6语法支持
+﻿// 导入es6语法支持
 var head = document.getElementsByTagName('head')[0];
 var es6script = document.createElement('script');
 es6script.setAttribute('type','text/javascript');
@@ -36,10 +36,10 @@ var CONFIG = {
 
   copyrightHtml: '<div class="footsever">\
     <ul class="clearfix">\
-      <li><i class="iconfont icon-anquan"></i>账户安全</li>\
-      <li><i class="iconfont icon-fenxi"></i>专家分析</li>\
-      <li><i class="iconfont icon-icon1"></i>专业预测</li>\
-      <li><i class="iconfont icon-shencha"></i>优质服务</li>\
+      <li><a href="javascript:void(0);" onclick="Api.checkLogin(\'expertplan.html?key=1&gmKey=1\')"><i class="iconfont icon-anquan"></i><em>专家预测</em></a></li>\
+      <li><a href="extend.html"><i class="iconfont icon-fenxi"></i><em>推广</em></a></li>\
+      <li><a href="javascript:void(0);" onclick="Api.checkLogin(\'member.html\')"><i class="iconfont icon-wo"></i><em>我</em></a></li>\
+      <li><a href="javascript:void(0);" onclick="_Base.showKefu()"><i class="iconfont icon-kefu1"></i><em>客服</em></a></li>\
     </ul>\
   </div>\
   <div class="footer">\
@@ -47,9 +47,9 @@ var CONFIG = {
       <div class="left">\
           <div class="btnlogo"></div>\
           <div class="main">\
-            <a href="javascript:void(0);">关于我们</a>\
-            <a href="javascript:void(0);">推广赚钱</a>\
-            <a href="javascript:void(0);">在线客服</a>\
+            <a href="trend.html">走势图表</a>\
+            <a href="news.html">行业资讯</a>\
+            <a href="skilliinfo.html">玩法技巧</a>\
       </div>\
         </div>\
         <div class="center">\
@@ -65,8 +65,8 @@ var CONFIG = {
         </div>\
         <div class="right">\
           <div class="tit">联系我们</div>\
-          <div class=""><i class="iconfont icon-xxx"></i>联系邮箱：seaono@onon.com</div>\
-          <div class=""><i class="iconfont icon-xxx"></i>QQ客服：845465885</div>\
+          <div class=""><i class="iconfont icon-xxx"></i></div>\
+          <div class=""><i class="iconfont icon-xxx"></i>QQ客服：1739626824</div>\
         </div>\
     </div>\
     <div class="copyright">\
@@ -77,7 +77,33 @@ var CONFIG = {
     </div>\
   </div>\
   </div>',
-  
+  qqkefuHtml: '<div id="online_qq_layer">\
+    <div id="online_qq_tab">\
+      <a id="floatShow" style="display:block;" href="javascript:void(0);">收缩</a>\
+      <a id="floatHide" style="display:none;" href="javascript:void(0);">展开</a>\
+    </div>\
+    <div id="onlineService">\
+      <div class="onlineMenu">\
+        <h3 class="tQQ">QQ在线客服</h3>\
+        <ul>\
+          <li class="tli zixun">在线咨询</li>\
+          <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1348312031&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener noreferrer"><img src="./images/default/pa.gif" width="74" height="22" alt="客服001" /></a></li>\
+          <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1739626824&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener noreferrer"><img src="./images/default/pa.gif" width="74" height="22" alt="客服002" /></a></li>\
+        </ul>\
+        <div class="cold">\
+          <span>微信二维码</span>\
+          <img src="./images/default/code1.jpg" width="74" height="22" alt="" />\
+        </div>\
+        <div class="cold phone">\
+        </div>\
+        <div class="cold time">\
+          <span>工作时间</span>\
+          <em>(8:30-18:00)</em>\
+        </div>\
+      </div>\
+      <div class="btmbg"></div>\
+    </div>\
+  </div>',
   // 玩法对象
   _payGameList: [
     // 重庆时时彩
@@ -316,6 +342,7 @@ var CONFIG = {
     // 初始化头部.版权
     $(".header").html(this.headHtml);
     $(".lay-footer").html(this.copyrightHtml);
+    $(".lay-footer").append(this.qqkefuHtml);
 
     if (this.pathName.indexOf("/index.html") > -1) {
       $(".navLst>li:eq(0)").addClass("cur");

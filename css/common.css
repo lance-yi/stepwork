@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 
 .wid1200{width:1200px; margin:0 auto;}
 .cr-red {color: red;}
@@ -38,8 +38,10 @@
 
 .lay-footer{ background:#2B2B2B;}
 .footsever{ width:1200px; color: #ccc; margin:0 auto;background:#2B2B2B;}
-.footsever i{ font-size:42px;margin: 0 10px 0 0; vertical-align: middle;}
-.footsever li{ float:left; width: 25%; font-size:18px;line-height: 60px; margin: 20px 0; padding-bottom: 20px;border-bottom:1px solid #444;}
+.footsever a{color:#fff;}
+.footsever i{ font-size:42px;margin: 0 10px 0 0; vertical-align: middle; display: block;}
+.footsever em{ padding-right:10px; display: inline-block; font-weight: bold;}
+.footsever li{ float:left; width: 25%; font-size:34px; text-align: center; line-height: 60px; margin: 20px 0; padding-bottom: 20px;border-bottom:1px solid #444; }
 .footer .mian{padding:50px 0 20px; text-align:left; color:#ccc; width:1200px; margin:0 auto;  padding-bottom:40px; line-height:24px;  background:#2B2B2B;}
 .footer a{ color: #999;}
 .footer a:hover{ color: #fff;}

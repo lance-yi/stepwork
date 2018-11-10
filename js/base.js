@@ -256,6 +256,9 @@ var _Base = {
     return prefix;
   },
   
+  showKefu:function(e){
+    $("#online_qq_tab").click();
+  },
   // 初始化
   init: function(){
     // 监听顶部
@@ -320,14 +323,40 @@ var _Base = {
 
     // 充值
     $(document).on("click", "#recharge", function () {
-      CONFIG._showDialog("recharge",1030,650);
+      CONFIG._showDialog("recharge",900,600);
     })
     
     /**
      * 顶部用户名显示判断
      */
     this.isLogin();
-    
+
+    //qq悬浮	
+    var _flag = true;
+    $(document).on("click", "#online_qq_tab", function () {
+      if(_flag){
+        $("#onlineService").animate({
+          width: "show",
+          opacity: "show"
+        }, "normal", function () {
+          $("#onlineService").show();
+        });
+        $("#floatShow").attr("style", "display:none");
+        $("#floatHide").attr("style", "display:block");
+        _flag = false;
+      }else{
+        $("#onlineService").animate({
+          width: "hide",
+          opacity: "hide"
+        }, "normal", function () {
+          $("#onlineService").hide();
+        });
+        $("#floatShow").attr("style", "display:block");
+        $("#floatHide").attr("style", "display:none");
+        _flag = true;
+      }
+    });
+
   },
   
 }
