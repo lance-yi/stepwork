@@ -19,6 +19,7 @@ var Api = {
       },
       callBack:function (res) {  
         if(res.state >= 10000){
+          Cookies.remove("isVip");
           Cookies.set("guid",res.pageUrl,{expires: 7, path: '/'});
           Cookies.set("isLogin",true,{expires: 7,path: '/'});
           Api.getUserInfo();
@@ -194,11 +195,7 @@ var Api = {
           gm_key: gmKey
         },
         callBack:function (res) {  
-          if(res.state == 1){
-            resolve(res.data);
-          }else{
-            rejects(res);
-          }
+          resolve(res);
         }
       })
     })

@@ -96,6 +96,28 @@
 	<!--登录/注册弹窗 start	-->
 	<div class="dialog"></div>
 	<!--登录/注册弹窗 end	-->
+	<button></button>
+	<style>
+	.no-vip::before{
+		content: "";
+		display: block;
+		width: 100%;
+		height: 100%;
+		background: #fff;
+		position: absolute;
+		opacity: .5;
+		user-select: none;
+	}
+	.no-vip::after{
+		content: "开通VIP查看完整计划";
+		display: block;
+		position: absolute;
+		top: 30%;
+		left: 30%;
+		font-size: 3.5em;
+		color: #FD5B59;
+	}
+	</style>
 	<script type="text/javascript" language="javascript" src="../layer_mobile/layer.js"></script>
 	<script type="text/javascript" language="javascript" src="./js/cookie.js"></script>
 	<script type="text/javascript" language="javascript" src="./js/jqMD.js"></script>
@@ -165,7 +187,7 @@
 					var evalArr = [],
 						stepArr = [],
 						htmlStr = "";
-					stepArr = res[0].gr_money1.split("\n");
+					stepArr = res.data[0].gr_money1.split("\n");
 					// 返回内容有问题，删除数组前三个
 					stepArr.splice(0,3);
 					// 处理直选问题
@@ -182,27 +204,41 @@
 					})
 					planeList.forEach(function (element, index) {
 						htmlStr += '<tr>';
-						if(index < 30){
-							element.forEach(function (item, _index) {
-								if(item.indexOf("中") == 0) {
-									htmlStr += '<td><div class="ui-table-cell cr-main">' + item + '</div></td>';
-								}else{
-									htmlStr += '<td><div class="ui-table-cell">' + item + '</div></td>';
-								}
-							});
+						if(res.state == 1){ // vip
+							if(index < 30){
+								element.forEach(function (item, _index) {
+									if(item.indexOf("中") == 0) {
+										htmlStr += '<td><div class="ui-table-cell cr-main">' + item + '</div></td>';
+									}else{
+										htmlStr += '<td><div class="ui-table-cell">' + item + '</div></td>';
+									}
+								});
+							}
+						}else{
+							if(index < 15){
+								element.forEach(function (item, _index) {
+									if(item.indexOf("中") == 0) {
+										htmlStr += '<td><div class="ui-table-cell cr-main">' + item + '</div></td>';
+									}else if(_index == 2){
+										htmlStr += '<td><div class="ui-table-cell">VIP可查看</div></td>';
+									}else{
+										htmlStr += '<td><div class="ui-table-cell">'+  item +'</div></td>';
+									}
+								});
+							}
+
 						}
 						htmlStr += "</tr>";
 					})
 					htmlStr += '<tr class="ui-table-lasttr"><td colspan="4"><em>方案</em><i>准确率 ' + _Base.mathRound() +'</i></td></tr>';
-					
 					$("#planeList .ui-table-body table tbody").html(htmlStr);
-
-				}).catch(function (err) {
-					var contxt = $("#planeList .ui-table-tips");
-					$("#planeList .ui-table-tips .ui-table-cell span").html(err.message)
-					contxt.show();
-					CONFIG._closeDialog();
-					CONFIG._showDialog("recharge",1030,650)
+					if(res.state == 0){
+						$("#planeList .ui-table-body").addClass("no-vip");
+						if(!Cookies.get("isVip")){
+							CONFIG._showDialog("recharge",900,590);
+							Cookies.set("isVip",false,{path: "/",expires: 7});
+						}
+					}
 				})
 			}
 			GetExpertPlanList(key, gmKey);

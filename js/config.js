@@ -243,6 +243,7 @@ var CONFIG = {
     Cookies.remove("isLogin");
     Cookies.remove("guid");
     Cookies.remove("userInfo");
+    Cookies.remove("isVip");
     this._closeDialog();
     this._showMsg("退出成功!")
     _Base.isLogin();
