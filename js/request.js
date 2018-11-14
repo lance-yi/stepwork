@@ -202,13 +202,15 @@ var Api = {
   },
 
   // 获取咨询列表 - 带分页
-  getNoticeList: function (type) {
+  getNoticeList: function (type,page) {
+    if(!arguments[1]) page = 1;
     return new Promise(function(resolve){
       new ajaxRequest({
         url: Api.notice,
         param: {
           action: 1,
-          type: type // type 类型  0行业资讯  1玩法技巧
+          type: type, // type 类型  0行业资讯  1玩法技巧
+          page: page
         },
         callBack:function (res) {  
           if(res.state == 0){
@@ -289,7 +291,7 @@ var Api = {
   submitDrawing: function (money,pwd) {
     return new Promise(function(resolve){
       new ajaxRequest({
-        url: this.recharge,
+        url: Api.recharge,
         param: {
           action: 1,
           money: money,
@@ -307,12 +309,14 @@ var Api = {
   },
 
   // 团队管理
-  getTeamList: function () {
+  getTeamList: function (page) {
+    if(!arguments[0]) page = 1;
     return new Promise(function(resolve){
       new ajaxRequest({
         url: Api.user,
         param: {
-          action: 2
+          action: 2,
+          page: page
         },
         callBack:function (res) { 
           if(res.state == 1){
@@ -326,12 +330,14 @@ var Api = {
   },
   
   // 团队佣金 3  资金明细 2
-  getGainsLosses: function (type) {
+  getGainsLosses: function (type,page) {
+    if(!arguments[1]) page = 1;
     return new Promise(function(resolve){
       new ajaxRequest({
         url: Api.gainsLosses,
         param: {
-          action: type
+          action: type,
+          page: page
         },
         callBack:function (res) { 
           if(res.state == 1){

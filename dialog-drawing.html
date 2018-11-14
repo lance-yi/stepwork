@@ -68,8 +68,10 @@ dl.name{ margin-bottom:15px;}
       </dl>
       <div class="tip">到账时间：申请提款后1个小时内到账，若提款1小时后未到账请联系客服处理</div>
     </form>
-    <div class="addBtn"><a class="btn2 btnsF16" href="javascript:void(0);" onclick="CONFIG._closeDialog()">取消</a><a class="btn1 btnsF16" href="javascript:void(0);"
-        id="submitDrawingFrom">确认</a></div>
+    <div class="addBtn">
+      <a class="btn2 btnsF16" href="javascript:void(0);" onclick="CONFIG._closeDialog()">取消</a>
+      <a class="btn1 btnsF16" href="javascript:;" id="submitDrawingFrom">确认</a>
+    </div>
   </div>
 </body>
 
@@ -84,7 +86,8 @@ dl.name{ margin-bottom:15px;}
 
     var userInfo = Cookies.getJSON("userInfo")
     $("#ky_money").html("￥" + _Base.formatCurrency(userInfo.u_money));
-    $("#ali_number").html((userInfo.u_bankType == 1 ? "<i class=\"iconfont icon-zhifubao\"></i>支付宝号 " : "<i class=\"iconfont icon-weixin\"></i>微信号") + userInfo.u_bankCard);
+    $("#ali_number").html((userInfo.u_bankType == 1 ? "<i class=\"iconfont icon-zhifubao\"></i>支付宝号 " :
+      "<i class=\"iconfont icon-weixin\"></i>微信号") + userInfo.u_bankCard);
 
     var drawMoney = $("#drawMoney");
     var passWord = $("#passWord");
@@ -97,14 +100,15 @@ dl.name{ margin-bottom:15px;}
       CONFIG._checkPayWord(passWord)
     })
 
-    $("#submitDrawingFrom").on("click", function () {
-      if(CONFIG._checkDrawMoney(drawMoney) && CONFIG._checkPayWord(passWord)){
-        Api.submitDrawing(drawMoney.val(),passWord.val()).then(function (res) {
+    $(document).on("click","#submitDrawingFrom",function(event){
+      event.preventDefault();
+      if (CONFIG._checkDrawMoney(drawMoney) && CONFIG._checkPayWord(passWord)) {
+        Api.submitDrawing(drawMoney.val(), passWord.val()).then(function (res) {
           CONFIG._showMsg("提现成功!")
           CONFIG._closeDialog();
         })
       }
-    });
+    })
 
     $.focusColor('input.text');
     $.focusDate('.dateText');

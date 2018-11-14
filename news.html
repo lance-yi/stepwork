@@ -96,13 +96,26 @@
 <script type="text/javascript" language="javascript" src="./js/request.js"></script>
 <script>
 	$(document).ready(function () {
-		Api.getNoticeList(0).then(function (res) {
-			var htmlStr = '';
-			res.data.forEach(function (item) {
-				htmlStr += "<li><a href=\"newsDetails.html?id="+ item.n_id +"\">"+ item.n_title +"</a><span>"+ item.n_addtime +"</span></li>";
-			});
-			$("#noticeList").html(htmlStr);
-			$("#pageList").html(res.pageUrl);
+		function GetNoticeList(page) {
+			if(!arguments[0]) page = 1;	
+			Api.getNoticeList(0,page).then(function (res) {
+				var htmlStr = '';
+				res.data.forEach(function (item) {
+					htmlStr += "<li><a href=\"newsDetails.html?id="+ item.n_id +"\">"+ item.n_title +"</a><span>"+ item.n_addtime +"</span></li>";
+				});
+				$("#noticeList").html(htmlStr);
+				$("#pageList").html(res.pageUrl);
+			})
+		};
+		GetNoticeList();
+		// 分页
+		$(document).on("click", "#pageList a", function (e) {
+			e.preventDefault();
+			_url = $(this).attr("id");
+			_num = $(this).text();
+			if(_url){
+				GetNoticeList(_num);
+			}
 		})
 	});
 </script>

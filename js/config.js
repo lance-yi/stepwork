@@ -36,7 +36,7 @@ var CONFIG = {
 
   copyrightHtml: '<div class="footsever">\
     <ul class="clearfix">\
-      <li><a href="javascript:void(0);" onclick="Api.checkLogin(\'expertplan.html?key=1&gmKey=1\')"><i class="iconfont icon-anquan"></i><em>专家预测</em></a></li>\
+      <li><a href="javascript:void(0);" onclick="Api.checkLogin(\'expertplan.html?key=1&gmKey=1\')"><i class="iconfont icon-anquan"></i><em>预测</em></a></li>\
       <li><a href="extend.html"><i class="iconfont icon-fenxi"></i><em>推广</em></a></li>\
       <li><a href="javascript:void(0);" onclick="Api.checkLogin(\'member.html\')"><i class="iconfont icon-wo"></i><em>我</em></a></li>\
       <li><a href="javascript:void(0);" onclick="_Base.showKefu()"><i class="iconfont icon-kefu1"></i><em>客服</em></a></li>\
@@ -47,33 +47,49 @@ var CONFIG = {
       <div class="left">\
           <div class="btnlogo"></div>\
           <div class="main">\
-            <a href="trend.html">走势图表</a>\
-            <a href="news.html">行业资讯</a>\
+            <a href="trend.html">如何充值</a>\
+            <a href="news.html">相关攻略</a>\
             <a href="skilliinfo.html">玩法技巧</a>\
       </div>\
         </div>\
         <div class="center">\
-          <div class="tit">友情链接</div>\
+          <div class="tit">合作伙伴</div>\
           <div class="main">\
-            <a href="javascript:void(0);">智能彩票推荐</a>\
-            <a href="javascript:void(0);">360彩票预测</a>\
-            <a href="javascript:void(0);">彩票彩票智能彩票推荐</a>\
-            <a href="javascript:void(0);">智能彩票推荐</a>\
-            <a href="javascript:void(0);">360彩票预测</a>\
-            <a href="javascript:void(0);">智能彩票推荐</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">新浪彩票</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">网易彩票</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">百度彩票</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">腾讯彩票</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">淘宝彩票</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">中国体彩</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">福利彩票</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">360彩票</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">500彩票</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">中国体彩</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">四川福彩</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">重庆福彩</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">重庆体彩</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">上海福彩</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">上海体彩</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">山东福彩</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">北京福彩</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">广州福彩</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">广州体彩</a>\
+            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">天津福彩</a>\
           </div>\
         </div>\
         <div class="right">\
           <div class="tit">联系我们</div>\
           <div class=""><i class="iconfont icon-xxx"></i></div>\
-          <div class=""><i class="iconfont icon-xxx"></i>QQ客服：1739626824</div>\
+          <div class=""><i class="iconfont icon-xxx"></i>客服 QQ：1739626824 123456 254689</div>\
+          <div class=""><i class="iconfont icon-xxx"></i>客服微信：XXXXXXXXX</div>\
+          <div class=""><i class="iconfont icon-xxx"></i>客服邮箱：lsdj@sina.com</div>\
         </div>\
     </div>\
     <div class="copyright">\
     <div class="main">\
-      <p>Copyright©2005-2018 360.cn版权所有</p>\
-      <p>京ICP备08010314号-6</p>\
-      <p class="color">本站为专业大数据分析平台  只提供彩票预测方案，预测有风险，消费需谨慎！</p>\
+      <p>Copyright©2015-2018 北京红杉嘉禾资产管理中心(版权所有)</p>\
+      <p>京ICP备14021035号-1</p>\
+      <p class="color">本平台不是购彩平台。只提供彩票预测方案，预测有风险，消费需谨慎！</p>\
     </div>\
   </div>\
   </div>',
@@ -98,7 +114,7 @@ var CONFIG = {
         </div>\
         <div class="cold time">\
           <span>工作时间</span>\
-          <em>(8:30-18:00)</em>\
+          <em>(10:30-18:00)</em>\
         </div>\
       </div>\
       <div class="btmbg"></div>\
@@ -204,7 +220,7 @@ var CONFIG = {
       content: msg
       ,skin: 'msg'
       ,anim: "scale"
-      ,time: 2 //2秒后自动关闭
+      ,time: 3 //3秒后自动关闭
     });
   },
 

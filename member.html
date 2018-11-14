@@ -149,8 +149,9 @@
 		$("#u_bankCard").html("银行卡号: " + userInfo.u_bankCard);
 		
 		// 团队管理
-		function GetTeamList() {
-			Api.getTeamList().then(function(res){
+		function GetTeamList(page) {
+			if(!arguments[0]) page = 1;
+			Api.getTeamList(page).then(function(res){
 				var htmlStr = "<tr><th width=\"25%\">账号</th><th width=\"25%\">加入日期</th><th width=\"25%\">级别</th><th width=\"25%\">状态</th></tr>";
 				res.data.forEach( function(item,index){
 					htmlStr += "<tr><td>"+ item.name +"</td><td>"+ item.addtime +"</td><td>"+ _Base.filterRank(item.type) +"</td><td><span>"+ (item.state == 1 ? "正常" : "冻结" ) +"</span></td></tr>";
@@ -161,9 +162,10 @@
 		}
 		GetTeamList();
 		
-		// 团队佣金
-		function GetTeamMoney() {
-			Api.getGainsLosses(3).then(function(res){
+		// 团队佣金 
+		function GetTeamMoney(page) {
+			if(!arguments[0]) page = 1;			
+			Api.getGainsLosses(3,page).then(function(res){
 				var htmlStr = "<tr><th width=\"20%\">账号</th><th width=\"20%\">充值</th><th width=\"20%\">取现</th><th width=\"20%\">活动</th><th width=\"20%\" class=\"price\">实际盈利(元)</th></tr>";
 				res.data.forEach( function(item,index){
 					htmlStr += "<tr><td>"+ item.uname +"</td><td>"+ _Base.formatCurrency(item.type1) +"</td><td>"+ _Base.formatCurrency(item.type2) +"</td><td>"+ _Base.formatCurrency(item.type8) +"</td><td><span class=\"price\">"+ _Base.formatCurrency(-item.type10) +"</span></td></tr>";
@@ -175,8 +177,9 @@
 		GetTeamMoney();
 
 		// 资金明细
-		function GetMoneyDetail() {
-			Api.getGainsLosses(2).then(function(res){
+		function GetMoneyDetail(page) {
+			if(!arguments[0]) page = 1;
+			Api.getGainsLosses(2,page).then(function(res){
 				var htmlStr = "<tr><th width=\"25%\">交易时间</th><th width=\"25%\">交易金额(元)</th><th width=\"25%\">交易明细</th><th width=\"25%\">账户余额</th></tr>";
 				res.data.forEach( function(item,index){
 					htmlStr += "<tr><td>"+ item.mc_addtime +"</td><td>"+ _Base.formatCurrency(item.mc_changemoney) +"</td><td>"+ item.mc_remark  +"</td><td><span class=\"price\">"+ _Base.formatCurrency(item.mc_aftermoney) +"</span></td></tr>";
@@ -196,6 +199,32 @@
 			});
 		};
 		tabs(".tab-hd", "cur", ".tab-bd");
+
+		// 分页点击(团队管理)
+		$(document).on("click", "#teamPage a", function (e) {
+			e.preventDefault();
+			_url = $(this).attr("id");
+			_num = $(this).text();
+			if(_url){
+				GetTeamList(_num);
+			}
+		});
+		$(document).on("click", "#teamMoneyPage a", function (e) {
+			e.preventDefault();
+			_url = $(this).attr("id");
+			_num = $(this).text();
+			if(_url){
+				GetTeamMoney(_num);
+			}
+		});
+		$(document).on("click", "#moneyDetailPage a", function (e) {
+			e.preventDefault();
+			_url = $(this).attr("id");
+			_num = $(this).text();
+			if(_url){
+				GetMoneyDetail(_num);
+			}
+		})
 	});
 </script>
 </html>
