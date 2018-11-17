@@ -100,6 +100,7 @@ dl.name{ margin-bottom:15px;}
         realName.val()
       ).then(function (res) {
         CONFIG._showMsg(res.message);
+        Cookies.remove("userInfo");
         setTimeout(function () {
           window.location.reload();
         },1000)

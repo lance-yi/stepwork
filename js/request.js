@@ -43,7 +43,6 @@ var Api = {
         pid: pid ? pid : 10000
       },
       callBack:function (res) { 
-        console.log(res); 
         if(res.state == 1){
           CONFIG._closeDialog();
           CONFIG._showAlert("温馨提示",res.message);

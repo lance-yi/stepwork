@@ -227,7 +227,7 @@ var CONFIG = {
   // 显示警告框
   _showAlert: function (title,msg) {
     layer.open({
-      title: [title,'background-color: #0088d; color:#fff;']
+      title: [title,'background-color: #0088dd; color:#fff;']
       ,content: msg
     });
   },
@@ -343,11 +343,15 @@ var CONFIG = {
       dom.parent().next().children(".tipTxt").text("必须包含数字");
       return false;
     }
-    if(!/[!@#$%^&*()_?<>{}]{1}/.test(dom.val())){
-      dom.parent().next().children(".tipTxt").text("必须包含特殊字符!@#$%^&*()_?<>{}");
-      return false;
-    }
-    if(!/([a-zA-Z0-9!@#$%^&*()_?<>{}]){6,18}/.test(dom.val())){
+    // if(!/[!@#$%^&*()_?<>{}]{1}/.test(dom.val())){
+    //   dom.parent().next().children(".tipTxt").text("必须包含特殊字符!@#$%^&*()_?<>{}");
+    //   return false;
+    // }
+    // if(!/([a-zA-Z0-9!@#$%^&*()_?<>{}]){6,18}/.test(dom.val())){
+    //   dom.parent().next().children(".tipTxt").text("密码长度为6-18位");
+    //   return false;
+    // }
+    if(!/([a-zA-Z0-9]){6,18}/.test(dom.val())){
       dom.parent().next().children(".tipTxt").text("密码长度为6-18位");
       return false;
     }

@@ -112,6 +112,12 @@
 	<script type="text/javascript" language="javascript" src="./js/config.js"></script>
 	<script type="text/javascript" language="javascript" src="./js/base.js"></script>
 	<script type="text/javascript" language="javascript" src="./js/request.js"></script>
+	<style>
+	.c{
+		font-weight: bold;
+		text-align: center;
+	}
+	</style>
 	<script>
 		$(document).ready(function () {
 			var planeList = [];
@@ -133,11 +139,12 @@
 							htmlStr += '<div class="' + (_index % 2 == 0 ? "th" : "td") + '">' + item + '</div>';
 						}
 					});
-					htmlStr += '<div class="last clearfix"><em>方案' + _Base.returnChinese(index + 1) + '</em><i>准确率 ' + _Base.mathRound() +
-						'</i></div></li>';
+					htmlStr += '<div class="last clearfix" style="padding-left:0;font-weight: bold; text-align: center; color: red;">方案' + _Base.returnChinese(index + 1) + ' 准确率 ' + _Base.mathRound() +
+						'</div></li>';
 				})
 				$("#planeList").html(htmlStr);
 			});
+			
 
 			// 加载首页行业资讯
 			Api.getIndexNotice(0).then(function (res) {
