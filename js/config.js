@@ -18,10 +18,10 @@ var CONFIG = {
           <li><a href="index.html"><em>首页</em></a></li>\
           <li><a href="javascript:void(0)" onclick="Api.checkLogin(\'expertplan.html?key=1&gmKey=1\')"><em>专家计划</em></a></li>\
           <li><a href="award.html?key=1"><em>开奖号码</em></a></li>\
-          <li><a href="trend.html"><em>走势图表</em></a></li>\
           <li><a href="news.html"><em>行业资讯</em></a></li>\
           <li><a href="skilliinfo.html"><em>玩法技巧</em></a></li>\
           <li><a href="extend.html"><em>推广赚钱</em></a></li>\
+         <li><a href="vip.html"><em>开通VIP</em></a></li>\
       </ul>\
     </div>\
     <div class="login" id="noLogin">\
@@ -36,7 +36,7 @@ var CONFIG = {
 
   copyrightHtml: '<div class="footsever">\
     <ul class="clearfix">\
-      <li><a href="javascript:void(0);" onclick="Api.checkLogin(\'expertplan.html?key=1&gmKey=1\')"><i class="iconfont icon-anquan"></i><em>预测</em></a></li>\
+      <li><a href="javascript:void(0);" onclick="Api.checkLogin(\'expertplan.html?key=1&gmKey=1\')"><i class="iconfont icon-anquan"></i><em>计划</em></a></li>\
       <li><a href="extend.html"><i class="iconfont icon-fenxi"></i><em>推广</em></a></li>\
       <li><a href="javascript:void(0);" onclick="Api.checkLogin(\'member.html\')"><i class="iconfont icon-wo"></i><em>我</em></a></li>\
       <li><a href="javascript:void(0);" onclick="_Base.showKefu()"><i class="iconfont icon-kefu1"></i><em>客服</em></a></li>\
@@ -47,7 +47,7 @@ var CONFIG = {
       <div class="left">\
           <div class="btnlogo"></div>\
           <div class="main">\
-            <a href="trend.html">如何充值</a>\
+            <a href="">如何充值</a>\
             <a href="news.html">相关攻略</a>\
             <a href="skilliinfo.html">玩法技巧</a>\
       </div>\
@@ -55,41 +55,35 @@ var CONFIG = {
         <div class="center">\
           <div class="tit">合作伙伴</div>\
           <div class="main">\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">新浪彩票</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">网易彩票</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">百度彩票</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">腾讯彩票</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">淘宝彩票</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">中国体彩</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">福利彩票</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">360彩票</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">500彩票</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">中国体彩</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">四川福彩</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">重庆福彩</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">重庆体彩</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">上海福彩</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">上海体彩</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">山东福彩</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">北京福彩</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">广州福彩</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">广州体彩</a>\
-            <a href="http://45.125.13.153:8099/expertplan.html?key=1&gmKey=1">天津福彩</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">新浪彩票</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">网易彩票</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">百度彩票</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">腾讯彩票</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">淘宝彩票</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">中国体彩</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">福利彩票</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">360彩票</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">500彩票</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">中国体彩</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">四川福彩</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">重庆福彩</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">重庆体彩</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">上海福彩</a>\
+            <a href="http://9923d.com/expertplan.html?key=1&gmKey=1">上海体彩</a>\
           </div>\
         </div>\
         <div class="right">\
           <div class="tit">联系我们</div>\
           <div class=""><i class="iconfont icon-xxx"></i></div>\
-          <div class=""><i class="iconfont icon-xxx"></i>客服 QQ：1739626824 123456 254689</div>\
-          <div class=""><i class="iconfont icon-xxx"></i>客服微信：XXXXXXXXX</div>\
+          <div class=""><i class="iconfont icon-xxx"></i>客服 QQ：1739626824</div>\
+          <div class=""><i class="iconfont icon-xxx"></i>客服微信：lang25852</div>\
           <div class=""><i class="iconfont icon-xxx"></i>客服邮箱：lsdj@sina.com</div>\
         </div>\
     </div>\
     <div class="copyright">\
     <div class="main">\
-      <p>Copyright©2015-2018 北京红杉嘉禾资产管理中心(版权所有)</p>\
-      <p>京ICP备14021035号-1</p>\
-      <p class="color">本平台不是购彩平台。只提供彩票预测方案，预测有风险，消费需谨慎！</p>\
+      <p>Copyright&copy;2015-2018 北京红杉嘉禾资产管理中心(版权所有)京ICP备14021035号-1</p>\
+      <p class="color">郑重申明：本站提供专业全面的彩票数据走势服务，不销售彩票！！也未与任何销售平台合作！</p>\
     </div>\
   </div>\
   </div>',
@@ -103,18 +97,23 @@ var CONFIG = {
         <h3 class="tQQ">QQ在线客服</h3>\
         <ul>\
           <li class="tli zixun">在线咨询</li>\
-          <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1348312031&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener noreferrer"><img src="./images/default/pa.gif" width="74" height="22" alt="客服001" /></a></li>\
+          <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1739626824&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener noreferrer"><img src="./images/default/pa.gif" width="74" height="22" alt="客服001" /></a></li>\
           <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1739626824&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener noreferrer"><img src="./images/default/pa.gif" width="74" height="22" alt="客服002" /></a></li>\
+          <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1739626824&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener noreferrer"><img src="./images/default/pa.gif" width="74" height="22" alt="客服001" /></a></li>\
+          <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1739626824&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener noreferrer"><img src="./images/default/pa.gif" width="74" height="22" alt="客服001" /></a></li>\
+          <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1739626824&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener noreferrer"><img src="./images/default/pa.gif" width="74" height="22" alt="客服001" /></a></li>\
+          <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1739626824&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener noreferrer"><img src="./images/default/pa.gif" width="74" height="22" alt="客服001" /></a></li>\
+          <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1739626824&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener noreferrer"><img src="./images/default/pa.gif" width="74" height="22" alt="客服001" /></a></li>\
         </ul>\
         <div class="cold">\
-          <span>微信二维码</span>\
+          <span>【客服微信】</span>\
           <img src="./images/default/code1.jpg" width="74" height="22" alt="" />\
         </div>\
         <div class="cold phone">\
         </div>\
         <div class="cold time">\
-          <span>工作时间</span>\
-          <em>(10:30-18:00)</em>\
+          <span>【工作时间】</span>\
+          <em>(10:30-22:30)</em>\
         </div>\
       </div>\
       <div class="btmbg"></div>\
