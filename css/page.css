@@ -251,7 +251,9 @@
   width: 20px;
   text-align: right;
 }
-
+.expertplan .leftNav .submenu ul{
+  display: none;
+}
 .expertplan .leftNav .submenu ul li {
   line-height: 40px;
   background: #fff;

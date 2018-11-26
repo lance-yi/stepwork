@@ -99,6 +99,7 @@ var _Base = {
       case 22: return '重庆幸运农场';
       case 23: return '香港六合彩';
       case 24: return '幸运28';
+      case 26: return '腾讯分分彩';
       case 28: return '重庆牛牛';
       case 29: return '5分牛牛';
       case 30: return '3分PK10';

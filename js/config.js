@@ -188,6 +188,26 @@ var CONFIG = {
         { key: 59 , name: '中三组六'},
         { key: 60 , name: '后三组六'},
       ]
+    },
+    {
+      key: 26,
+      icon: '<i class="iconfont icon-tengxunfenfencai"></i>',
+      name: "腾讯分分彩",
+      list: [
+        { key: 20 , name: '前三杀1码'},
+        { key: 21 , name: '中三杀1码'},
+        { key: 22 , name: '后三杀1码'},
+        { key: 27 , name: '五星定位1胆'},
+        { key: 28 , name: '五星定位2胆'},
+        { key: 29 , name: '龙虎'},
+        { key: 34 , name: '个位定胆'},
+        { key: 39 , name: '个位大小'},
+        { key: 44 , name: '个位单双'},
+        { key: 45 , name: '后二直选'},
+        { key: 49 , name: '后三直选'},
+        { key: 61 , name: '前二组选复式'},
+        { key: 62 , name: '后二组选复式'},
+      ]
     }
   ],
 

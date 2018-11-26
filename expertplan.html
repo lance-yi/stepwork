@@ -134,30 +134,34 @@
 			// 加载左边导航
 			var htmlNav = "";
 			CONFIG._payGameList.forEach(function (items) {
-				htmlNav += "<li class='submenu'><div>"+ items.icon + items.name +"<i class='iconfont icon-jiantou-xia'></i></div><ul>";
+				htmlNav += "<li class='submenu' data-key="+ items.key +"><div>"+ items.icon + items.name +"<i class='iconfont icon-jiantou-xia'></i></div><ul>";
 				items.list.forEach(function (item) {
 					htmlNav += "<li data-key="+ items.key +" data-gmkey="+ item.key +"><a href=\"expertplan.html?key="+ items.key +"&gmKey="+ item.key +"\">"+ item.name +"</a></li>"
 				})
-				htmlNav += "</li>";
+				htmlNav += "</ul></li>";
 			});
 			
 			$("#leftNav").html(htmlNav);
 			
+			$(".submenu ul").slideUp();
 			$('.submenu').on('click',function(){
-					$(this).siblings().find('ul').slideUp();
 					$(this).find('ul').slideToggle();
 			});
-			
+						
 			// 判断当前彩种并添加对应的样式
 			var key = _Base.getQueryString("key");
 			var gmKey = _Base.getQueryString("gmKey");
 			$("[data-key]").removeClass("cur");
 			var gmkeyList = $("[data-gmkey]");
 			for (let i = 0; i < gmkeyList.length; i++) {
-				if ($(gmkeyList[i]).data("gmkey") == gmKey) {
+				if ($(gmkeyList[i]).data("gmkey") == gmKey && $(gmkeyList[i]).data("key") == key) {
 					$(gmkeyList[i]).addClass("cur");
 				}
 			}
+			$(".submenu[data-key="+key+"]").children("ul").slideDown();
+
+
+
 
 			$("#payGame").html(_Base.filterLottery_zh(key)+":"+_Base.filterPayGame_zh(gmKey));
 
