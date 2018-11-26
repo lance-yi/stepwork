@@ -20,16 +20,17 @@
 	<div class="header"></div>
 	<div class="content expertAward clearfix">
 		<div class="leftNav">
-			<dl><dt class="cur" data-key="1"><i class="iconfont icon-cqssc"></i>重庆时时彩</dt></dl>
-			<dl><dt><i class="iconfont icon-3d"><img src="./images/default/3d.png" /></i>福彩3D</dt></dl>
+			<dl><dt class="cur" data-key="1"><a href="/award.html?key=1"><i class="iconfont icon-cqssc"></i>重庆时时彩</a></dt></dl>
+			<!-- <dl><dt><i class="iconfont icon-3d"><img src="./images/default/3d.png" /></i>福彩3D</dt></dl>
 			<dl><dt><i class="iconfont icon-115"><img src="./images/default/11-5.png" /></i>11选5</dt></dl>
-			<dl><dt><i class="iconfont icon-hunpk"></i>北京PK10</dt></dl>
-			<dl><dt><i class="iconfont icon-tengxunfenfencai"></i>腾讯分分彩</dt></dl>
+			<dl><dt><i class="iconfont icon-hunpk"></i>北京PK10</dt></dl> -->
+			<dl><dt data-key="26"><a href="/award.html?key=26"><i class="iconfont icon-tengxunfenfencai"></i>腾讯分分彩</a></dt></dl>
 		</div>
 		<div class="rightAward">
 			<div class="nowprize clearfix">
 				<div class="periods">
 					<i class="iconfont icon-shijian"></i>
+					<span id="payGame" style="color: #FD5B59;"></span>
 					<span id="nowStage">
 						<!-- 当前期数 -->
 					</span>
@@ -81,6 +82,9 @@
 		$(document).ready(function () {
 
 			// CONFIG._isLoginSuccess();
+			var key = _Base.getQueryString("key");
+			$("#payGame").html(_Base.filterLottery_zh(key));
+
 
 			// 判断当前彩种并添加对应的样式
 			var key = _Base.getQueryString("key");
