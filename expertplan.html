@@ -178,9 +178,9 @@
 						-3) + "期");
 				})
 			}
-			GetNowOpenCode(1);
+			GetNowOpenCode(key);
 			var nowOpenCodeInt = window.setInterval(function () {
-				GetNowOpenCode(1)
+				GetNowOpenCode(key)
 				GetExpertPlanList(key, gmKey);
 			}, 10000);
 
