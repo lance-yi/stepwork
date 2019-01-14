@@ -194,14 +194,13 @@
 					stepArr = res.data[0].gr_money1.split("\n");
 					// 返回内容有问题，删除数组前三个
 					stepArr.splice(0,3);
-					// 处理直选问题(暂时不要了)
-					// if(gmKey == 45 || gmKey == 46 || gmKey == 47 || gmKey == 48 || gmKey == 49){
-					// 	console.log(stepArr)
-					// 	$("#zhixuanBox").show().text(stepArr[0]);
-					// 	stepArr.splice(0,1);
-					// }else{
-					// 	$("#zhixuanBox").hide();
-					// }
+				 // 处理单式问题
+					if(gmKey == 14 || gmKey == 15){
+						$("#zhixuanBox").show().text(stepArr[stepArr.length-1]);
+						stepArr.splice(stepArr.length-1,1);
+					}else{
+						$("#zhixuanBox").hide();
+					}
 					stepArr.forEach(function (items) {
 						// 处理pk10问题
 						if(gmKey == 16 || gmKey == 17 || gmKey == 18){
